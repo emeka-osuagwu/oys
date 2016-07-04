@@ -4,7 +4,7 @@
 @section('content')
 
       <p>Create Your Oyster account</p>
-      <form method="post" action="/login">
+      <form method="post" action="/register">
         {!! csrf_field() !!}
         <div class="form-group">
           <label class="sr-only" for="inputName">Name</label>

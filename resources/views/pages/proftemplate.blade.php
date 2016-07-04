@@ -23,12 +23,12 @@
 
 	<script src="js/plugins.js"></script>
 	<script src="js/lib/ion-range-slider/ion.rangeSlider.js"></script>
-	<link rel="stylesheet" href="css/lib/ion-range-slider/ion.rangeSlider.css">
-	<link rel="stylesheet" href="css/lib/ion-range-slider/ion.rangeSlider.skinHTML5.css">
+	<link rel="stylesheet" href="{!! load_asset('assets/css/lib/ion-range-slider/ion.rangeSlider.css') !!}">
+	<link rel="stylesheet" href="{!! load_asset('assets/css/lib/ion-range-slider/ion.rangeSlider.skinHTML5.css') !!}">
 	<script src="js/app.js"></script>
 
-    <link rel="stylesheet" href="css/lib/font-awesome/font-awesome.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="{!! load_asset('assets/css/lib/font-awesome/font-awesome.min.css') !!}">
+    <link rel="stylesheet" href="{!! load_asset('assets/css/main.css') !!}">
 </head>
 <body>
 

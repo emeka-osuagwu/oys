@@ -16,6 +16,6 @@
 		@include('pages.includes.sections.top_nav')
 		@yield('content')
 		@include('pages.includes.sections.footer')  
-		@include('pages.includes.sections.script')
+		@include('pages.includes.sections.scripts')
 	</body>
 </html>

@@ -1,9 +1,9 @@
 @extends('template')
 
+@section('title', 'Index')
+
 @section('content')
 
-
-  <!-- Page -->
   <div class="page animsition">
       <div class="page-content padding-30 container-fluid">
           <div class="row" data-plugin="matchHeight" data-by-row="true">
@@ -422,9 +422,7 @@
           </div>
       </div>
   </div>
-  <!-- End Page -->
 
-  <!-- Add Item Dialog -->
   <div id="addtodoItemForm" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="addtodoItemForm" aria-hidden="true">
       <div class="modal-dialog">
           <form class="modal-content form-horizontal" role="form" action="#" method="post">
@@ -471,9 +469,7 @@
           </form>
       </div>
   </div>
-  <!-- End Add Item Dialog -->
 
-  <!-- Edit Dialog -->
   <div class="modal fade" id="edittodoItemForm" aria-hidden="true" aria-labelledby="edittodoItemForm" role="dialog" tabindex="-1" data-show="false">
       <div class="modal-dialog">
           <form class="modal-content form-horizontal" action="#" method="post" role="form">
@@ -519,6 +515,5 @@
           </form>
       </div>
   </div>
-  <!-- End Edit Dialog -->
 
 @endsection

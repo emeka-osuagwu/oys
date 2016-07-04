@@ -6,6 +6,21 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/', [
 		'as' 	=> '/',
 		'uses' 	=> 'PagesController@dashboardPage'
+	])->middleware('auth');
+
+	Route::get('login', [
+		'as' 	=> 'logout',
+		'uses' 	=> 'PagesController@getLogin'
+	]);
+
+	Route::post('login', [
+		'as' 	=> 'logout',
+		'uses' 	=> 'Auth\AuthController@postLogin'
+	]);
+
+	Route::get('/logout', [
+		'as' 	=> 'logout',
+		'uses' 	=> 'Auth\AuthController@logout'
 	]);
 
 });

@@ -18,7 +18,7 @@ class UserController extends Controller
     public function index()
     {
         //
-        return view('profile');
+        return view('pages.profile');
     }
 
     /**
@@ -82,7 +82,7 @@ class UserController extends Controller
        $user['date_birth']= $request->date_birth;
        $user->save();
        Session::flash('message', 'Profile Update Successful');
-       return view('profile');
+       return view('pages.profile');
     }
 
     /**

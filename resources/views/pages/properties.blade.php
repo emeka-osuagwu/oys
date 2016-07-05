@@ -16,6 +16,7 @@
 
 	</div>
 	<div class="page-content">
+		@if($properties->count() > 0)
 		<!-- Panel Basic -->
 		<div class="panel">
 			<header class="panel-heading" style="display:none;">
@@ -156,6 +157,9 @@
 			</div>
 
 			@endforeach
+		@else
+			<div class="alert alert-warning">Hi {{ucwords(Auth::user()->name)}} you have no properties on our platform </div>
+		@endif
 
 
 		@endsection

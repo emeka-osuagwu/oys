@@ -23,6 +23,7 @@ class SavingsController extends Controller
     {
         $this->middleware('auth');
     }
+  
     public function tofloat($num) {
       $dotPos = strrpos($num, '.');
       $commaPos = strrpos($num, ',');
@@ -37,6 +38,7 @@ class SavingsController extends Controller
       preg_replace("/[^0-9]/", "", substr($num, 0, $sep)) . '.' .
       preg_replace("/[^0-9]/", "", substr($num, $sep+1, strlen($num)))
     );
+  
   }
 
     /**
@@ -47,20 +49,20 @@ class SavingsController extends Controller
     public function index()
     {   $mysaving = Auth::user()->mysaving;
         if(isset($mysaving)){
-          return view('savings', compact('mysaving'));
+          return view('pages.savings', compact('mysaving'));
         }
-        return view('newsavings');
+        return view('pages.newsavings');
     }
 
     public function history()
-    {   $payments = Auth::user()->mysaving->payments()->where('status', '1')->get();
+    {   
+        return $payments = Auth::user()->mysaving->payments()->where('status', '1')->get();
         return view('history', compact('payments'));
-
     }
 
     public function cashoutsHistory()
     {   $cashouts = Auth::user()->cashouts()->get();
-        return view('cashoutshistory', compact('cashouts'));
+        return view('pages.cashoutshistory', compact('cashouts'));
 
     }
 

@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Repositories\UserRepository;
+use App\Repositories\PropertyRepository;
+
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -15,7 +19,11 @@ class Controller extends BaseController
     {
     	$this->middleware('auth', ['except' => [
             'getLogin',
-            'barAction',
+            'getRegister',
+            'postRegister',
         ]]);
+
+    	$this->userRepository 		= new UserRepository;
+    	$this->propertyRepository 	= new PropertyRepository;
     }
 }

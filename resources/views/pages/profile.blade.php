@@ -1,4 +1,4 @@
-@extends('proftemplate')
+@extends('template')
 @section('content')
 	<div class="page-content">
 		<div class="container-fluid">

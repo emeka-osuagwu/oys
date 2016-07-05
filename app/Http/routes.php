@@ -1,6 +1,5 @@
 <?php
 
-
 Route::group(['middleware' => ['web']], function () {
   
 	Route::get('/', [
@@ -22,6 +21,74 @@ Route::group(['middleware' => ['web']], function () {
 		'as' 	=> 'logout',
 		'uses' 	=> 'Auth\AuthController@logout'
 	]);
+
+	Route::get('/register', [
+		'as' 	=> 'logout',
+		'uses' 	=> 'PagesController@getRegister'
+	]);
+
+	Route::post('/register', [
+		'as' 	=> 'logout',
+		'uses' 	=> 'Auth\AuthController@postRegister'
+	]);
+
+	Route::get('profile', [
+		'as' 	=> 'logout',
+		'uses' 	=> 'UserController@updateprofile'
+	]);
+	
+	Route::get('properties', [
+		'as' 	=> 'properties',
+		'uses' 	=> 'PropertyController@index'
+	]);
+
+	Route::group(['prefix' => 'property'], function () {
+
+		Route::get('create', [
+			'as' 	=> 'properties',
+			'uses' 	=> 'PropertyController@getCreate'
+		]);
+	});
+
+	Route::get('rents', [
+		'as' 	=> 'rents',
+		'uses' 	=> 'RentController@index'
+	]);
+
+	Route::group(['prefix' => 'rent'], function () {
+
+		Route::get('create', [
+			'as' 	=> 'properties',
+			'uses' 	=> 'RentController@create'
+		]);
+	});
+
+	Route::get('savings', [
+		'as' 	=> 'savings',
+		'uses' 	=> 'SavingsController@index'
+	]);
+
+	Route::group(['prefix' => 'savings'], function () {
+
+		Route::get('history', [
+			'as' 	=> 'savings.history',
+			'uses' 	=> 'SavingsController@history'
+		]);
+	});
+
+	Route::group(['prefix' => 'cashout'], function () {
+
+		Route::get('history', [
+			'as' 	=> 'cashout.history',
+			'uses' 	=> 'SavingsController@cashoutsHistory'
+		]);
+	});
+
+	Route::get('earnings', [
+		'as' 	=> 'savings',
+		'uses' 	=> 'RentController@earnings'
+	]);
+	
 
 });
 

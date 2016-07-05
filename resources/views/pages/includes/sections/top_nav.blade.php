@@ -25,7 +25,7 @@
                   </a>
                 </li>
                 <li class="site-menu-item">
-                  <a class="animsition-link" href="{{URL::to('/properties/create')}}">
+                  <a class="animsition-link" href="{{URL::to('/property/create')}}">
                     <span class="site-menu-title">NEW PROPERTY</span>
                   </a>
                 </li>
@@ -46,7 +46,7 @@
                   </a>
                 </li>
                 <li class="site-menu-item">
-                  <a class="animsition-link" href="{{URL::to('/rents/create')}}">
+                  <a class="animsition-link" href="{{URL::to('/rent/create')}}">
                     <span class="site-menu-title">NEW LET</span>
                   </a>
                 </li>

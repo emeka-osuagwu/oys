@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LoginRequest extends Request
+class RegisterRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,8 @@ class LoginRequest extends Request
     public function rules()
     {
         return [
-            'email'       => 'required',
-            'password'    => 'required',
+            'email'       => 'required|unique:users|email',
+            'password'    => 'required|min:6',
         ];
     }
 }

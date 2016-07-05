@@ -43,7 +43,7 @@ public function index()
   //
 
   $rents=Auth::user()->rents()->paginate(10);
-  return view('rents',compact('rents'));
+  return view('pages.rents',compact('rents'));
 }
 
 public function propertyRent($id)
@@ -63,7 +63,7 @@ public function propertyRent($id)
 public function create()
 {
   //
-  return view('addrents');
+  return view('pages.addrents');
 
 }
 
@@ -320,7 +320,7 @@ public function earnings()
 {
 
   $earnings = Auth::user()->earnings();
-  return view('earnings', compact('earnings'));
+  return view('pages.earnings', compact('earnings'));
   //
 }
 

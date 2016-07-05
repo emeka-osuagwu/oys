@@ -1,8 +1,19 @@
-<?php namespace App\Repositories;
+<?php 
+
+
+namespace App\Repositories;
 
 use App\User;
 
-class UserRepository {
+class UserRepository 
+{
+
+    public function createUser($data)
+    {
+        $user = User::create($data);
+    }
+
+
     public function findByUserNameOrCreate($userData) {
         $user = User::where('email', '=', $userData->email)->first();
         if(!$user) {

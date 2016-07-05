@@ -6,6 +6,7 @@ use Auth;
 use App\User;
 use Validator;
 use Socialite;
+use App\Http\Requests;
 use App\AuthenticateUser;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -43,83 +44,74 @@ class AuthController extends Controller
 		$this->middleware($this->guestMiddleware(), ['except' => 'logout']);
 	}
 
-
-	public function postLogin(Request $request)
+	public function postLogin(Requests\LoginRequest $request)
 	{
-		return $request->all();
-	}
-
-
-
-	/**
-	* Get a validator for an incoming registration request.
-	*
-	* @param  array  $data
-	* @return \Illuminate\Contracts\Validation\Validator
-	*/
-	protected function validator(array $data)
-	{
-		return Validator::make($data, [
-			'name' => 'required|max:255',
-			'email' => 'required|email|max:255|unique:users',
-			'password' => 'required|min:6|confirmed',
-		]);
-	}
-
-	/**
-	* Create a new user instance after a valid registration.
-	*
-	* @param  array  $data
-	* @return User
-	*/
-	protected function create(array $data)
-	{
-		return User::create([
-			'name' => $data['name'],
-			'email' => $data['email'],
-			// 'date_birth' => $data['date_birth'],
-			'password' => bcrypt($data['password']),
-		]);
-	}
-
-	public function redirectToProvider($driver)
-	{
-		return Socialite::driver($driver)->redirect();
-	}
-
-	public function handleProviderCallback($driver)
-	{
-		try {
-			$user = Socialite::driver($driver)->user();
-		} catch (Exception $e) {
-			return \Redirect::to('auth/login');
+		if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']])) { 
+		    return redirect()->intended('/');
 		}
-
-		$authUser = $this->findOrCreateUser($user);
-
-		Auth::login($authUser, true);
-
-		return \Redirect::intended();
+		else
+		{
+			session()->flash('alert-danger', 'Invalid credentials');
+			return redirect()->back();
+		}
 	}
 
-	private function findOrCreateUser($user)
+	public function postRegister(Requests\RegisterRequest $request)
 	{
-		if ($authUser = User::where('email', $user->getEmail())->first()) {
-			return $authUser;
-		}
-
-		return User::create([
-			'name' => $user->getName(),
-			'email' => $user->getEmail(),
-			'password' => '',
-			'phone' => '0800'
-		]);
+		$user = $this->userRepository->createUser($request->all());
+		return redirect()->intended('/');
 	}
 
 	public function logout()
 	{
-			Auth::logout();
-			return back();
+		Auth::logout();
+		return back();
 	}
-
 }
+
+
+//revisit code later 
+
+// protected function create(array $data)
+// {
+// 	return User::create([
+// 		'name' => $data['name'],
+// 		'email' => $data['email'],
+// 		// 'date_birth' => $data['date_birth'],
+// 		'password' => bcrypt($data['password']),
+// 	]);
+// }
+
+// public function redirectToProvider($driver)
+// {
+// 	return Socialite::driver($driver)->redirect();
+// }
+
+// public function handleProviderCallback($driver)
+// {
+// 	try {
+// 		$user = Socialite::driver($driver)->user();
+// 	} catch (Exception $e) {
+// 		return \Redirect::to('auth/login');
+// 	}
+
+// 	$authUser = $this->findOrCreateUser($user);
+
+// 	Auth::login($authUser, true);
+
+// 	return \Redirect::intended();
+// }
+
+// private function findOrCreateUser($user)
+// {
+// 	if ($authUser = User::where('email', $user->getEmail())->first()) {
+// 		return $authUser;
+// 	}
+
+// 	return User::create([
+// 		'name' => $user->getName(),
+// 		'email' => $user->getEmail(),
+// 		'password' => '',
+// 		'phone' => '0800'
+// 	]);
+// }

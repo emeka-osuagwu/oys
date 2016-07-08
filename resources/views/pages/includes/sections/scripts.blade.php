@@ -57,3 +57,14 @@
     $('.formatt').number( true, 2 );
   });
   </script>
+
+<script type="text/javascript">
+  
+$('.link_to_member').click(function () 
+{
+    var params = $(this).attr('link');
+
+    window.location = "property/" + params
+})
+
+</script>

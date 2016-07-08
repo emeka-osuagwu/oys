@@ -12,8 +12,7 @@ class UserRepository
     {
         $user = User::create($data);
     }
-
-
+    
     public function findByUserNameOrCreate($userData) {
         $user = User::where('email', '=', $userData->email)->first();
         if(!$user) {

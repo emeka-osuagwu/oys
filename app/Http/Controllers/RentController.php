@@ -63,7 +63,7 @@ public function propertyRent($id)
 public function create()
 {
   //
-  return view('pages.addrents');
+  return view('pages.add_rents');
 
 }
 
@@ -73,11 +73,10 @@ public function create()
 * @param  \Illuminate\Http\Request  $request
 * @return \Illuminate\Http\Response
 */
-public function store(Request $request)
+public function postCreate(Request $request)
 {
-  //
-  if(Auth::user()->id == 'rent()->id')
 
+  if(Auth::user()->id == 'rent()->id')
   {
     $status = $request->status;
   }

@@ -42,6 +42,7 @@ class AuthController extends Controller
 	public function __construct()
 	{
 		$this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+		parent::__construct();
 	}
 
 	public function postLogin(Requests\LoginRequest $request)
@@ -52,7 +53,7 @@ class AuthController extends Controller
 		else
 		{
 			session()->flash('alert-danger', 'Invalid credentials');
-			return redirect()->back();
+			return back();
 		}
 	}
 

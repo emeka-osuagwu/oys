@@ -15,10 +15,11 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    function __construct()
+    public function __construct()
     {
     	$this->middleware('auth', ['except' => [
             'getLogin',
+            'postLogin',
             'getRegister',
             'postRegister',
         ]]);

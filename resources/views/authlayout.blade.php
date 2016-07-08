@@ -67,7 +67,6 @@
   <div class="page animsition vertical-align text-center" data-animsition-in="fade-in"
   data-animsition-out="fade-out">>
     <div class="page-content vertical-align-middle">
-      @include('pages.includes.sections.flash')
       <div class="brand">
         <img class="brand-img" src="{{URL::asset('logo.png')}}" alt="..." style="width:350px">
 
@@ -135,20 +134,6 @@
 
   <script src="{{URL::asset('global/js/components/jquery-placeholder.min.js')}}"></script>
 
-
-  <script>
-    (function(document, window, $) {
-      'use strict';
-
-      var Site = window.Site;
-      $(document).ready(function() {
-        Site.run();
-      });
-    })(document, window, jQuery);
-  </script>
-
-
-  <!-- Google Analytics -->
 
 </body>
 

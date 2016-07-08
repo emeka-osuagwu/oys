@@ -44,9 +44,19 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::group(['prefix' => 'property'], function () {
 
+		Route::get('{id}', [
+			'as' 	=> 'property.id',
+			'uses' 	=> 'PropertyController@show'
+		]);
+		
 		Route::get('create', [
 			'as' 	=> 'properties',
 			'uses' 	=> 'PropertyController@getCreate'
+		]);
+		
+		Route::post('create', [
+			'as' 	=> 'properties',
+			'uses' 	=> 'PropertyController@postCreate'
 		]);
 	});
 
@@ -60,6 +70,11 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('create', [
 			'as' 	=> 'properties',
 			'uses' 	=> 'RentController@create'
+		]);
+
+		Route::post('create', [
+			'as' 	=> 'properties',
+			'uses' 	=> 'RentController@postCreate'
 		]);
 	});
 

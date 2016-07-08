@@ -36,7 +36,7 @@
 						<h3 class="panel-title">New Rent Form</h3>
 					</div>
 					<div class="panel-body container-fluid">
-						<form autocomplete="off" action="{{ URL::to('rents/create') }}" method="post">
+						<form autocomplete="off" action="{{ URL::to('rent/create') }}" method="post">
 							{!! csrf_field() !!}
 							<div class="form-group form-material floating">
 								<textarea rows="5" class="form-control " name= "description" maxlength="300" required=""></textarea>

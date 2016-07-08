@@ -83,6 +83,7 @@ public function postCreate(Request $request)
   else {
     $status = '0';
   }
+  
 
   $rent = new Rent;
   $rent->user_id = Auth::user()->id;

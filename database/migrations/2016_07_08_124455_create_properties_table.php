@@ -24,7 +24,7 @@ class CreatePropertiesTable extends Migration {
 			$table->float('price', 10, 0);
 			$table->string('description');
 			$table->timestamps();
-			$table->dateTime('deleted_at')->default('0000-00-00 00:00:00');
+			$table->dateTime('deleted_at');
 		});
 	}
 

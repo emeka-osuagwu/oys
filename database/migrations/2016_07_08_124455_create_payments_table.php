@@ -20,7 +20,7 @@ class CreatePaymentsTable extends Migration {
 			$table->integer('mysaving_id')->default(0);
 			$table->float('amount', 10, 0);
 			$table->string('reference');
-			$table->dateTime('paydate');
+			$table->date('paydate');
 			$table->boolean('status');
 			$table->date('created_at')->nullable();
 			$table->date('updated_at')->nullable();

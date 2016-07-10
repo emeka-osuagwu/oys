@@ -16,12 +16,12 @@ class CreateUsersTable extends Migration {
 		{
 			$table->integer('id', true);
 			$table->string('name');
-			$table->string('email');
+			$table->string('email')->nullable();
 			$table->date('date_birth')->nullable();
 			$table->string('phone')->nullable();
 			$table->bigInteger('oauth')->nullable();
 			$table->string('avatar')->nullable();
-			$table->boolean('role');
+			$table->boolean('role')->nullable();
 			$table->string('password');
 			$table->string('remember_token')->nullable();
 			$table->date('created_at')->nullable();

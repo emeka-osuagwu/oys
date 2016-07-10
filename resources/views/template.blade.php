@@ -7,8 +7,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
 		<meta name="description" content="bootstrap admin template">
 		<meta name="author" content="">
-		@include('pages.includes.sections.links')
 		<title>Rents/Property Manager | @yield('title')</title>
+		@include('pages.includes.sections.links')
 	</head>
 
 	<body class="dashboard site-navbar-small">

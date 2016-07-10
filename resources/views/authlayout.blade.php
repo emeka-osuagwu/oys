@@ -39,18 +39,7 @@
   <link rel="stylesheet" href="{{URL::asset('global/fonts/web-icons/web-icons.min3f0d.css?v2.2.0')}}">
   <link rel="stylesheet" href="{{URL::asset('global/fonts/brand-icons/brand-icons.min3f0d.css?v2.2.0')}}">
   <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
-
-
-  <!--[if lt IE 9]>
-    <script src="{{URL::asset('global/vendor/html5shiv/html5shiv.min.js')}}"></script>
-    <![endif]-->
-
-  <!--[if lt IE 10]>
-    <script src="{{URL::asset('global/vendor/media-match/media.match.min.js')}}"></script>
-    <script src="{{URL::asset('global/vendor/respond/respond.min.js')}}"></script>
-    <![endif]-->
-
-  <!-- Scripts -->
+  
   <script src="{{URL::asset('global/vendor/modernizr/modernizr.min.js')}}"></script>
   <script src="{{URL::asset('global/vendor/breakpoints/breakpoints.min.js')}}"></script>
   <script>

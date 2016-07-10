@@ -17,8 +17,8 @@ class CreateUsersTable extends Migration {
 			$table->integer('id', true);
 			$table->string('name');
 			$table->string('email');
-			$table->date('date_birth');
-			$table->string('phone');
+			$table->date('date_birth')->nullable();
+			$table->string('phone')->nullable();
 			$table->bigInteger('oauth')->nullable();
 			$table->string('avatar')->nullable();
 			$table->boolean('role');

@@ -23,8 +23,8 @@ class CreatePropertiesTable extends Migration {
 			$table->string('state');
 			$table->float('price', 10, 0);
 			$table->string('description');
-			$table->timestamps();
 			$table->date('deleted_at');
+			$table->timestamps();
 		});
 	}
 

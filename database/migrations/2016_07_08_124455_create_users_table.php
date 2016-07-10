@@ -19,6 +19,8 @@ class CreateUsersTable extends Migration {
 			$table->string('email');
 			$table->date('date_birth');
 			$table->string('phone');
+			$table->bigInteger('oauth')->nullable();
+			$table->string('avatar')->nullable();
 			$table->boolean('role');
 			$table->string('password');
 			$table->string('remember_token')->nullable();

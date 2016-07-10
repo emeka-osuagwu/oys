@@ -104,6 +104,16 @@ Route::group(['middleware' => ['web']], function () {
 		'uses' 	=> 'RentController@earnings'
 	]);
 	
+	// Route::group(['prefix' => 'auth/social'], function () {
+
+	// 	Route::get('{provider?}', [
+	// 		'as' 	=> 'property.id',
+	// 		'uses' 	=> 'PropertyController@show'
+	// 	]);
+		
+	// });
+
+	Route::get('/login/{provider}', 'OauthController@getSocialLogin');
 
 });
 

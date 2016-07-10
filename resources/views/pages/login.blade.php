@@ -36,6 +36,11 @@
     </div>
     <button type="submit" class="btn btn-primary btn-block">Sign in</button>
   </form>
+      <p>
+    <a href="{{ Url('login/facebook') }}" class="btn btn-info" style="background-color:#244493; border-color:#244493;">FACEBOOK SIGN IN</a>
+    <a href="{{  Url('auth/social/google') }}" class="btn btn-warning" style="background-color:red;">GOOGLE SIGN IN</a>
+    </p>
+
   <p>Still no account? Please <a href="/register">Create Your Account</a></p>
 @endsection
 

@@ -14,14 +14,13 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password','role','phone','date_birth'
     ];
+
     protected $date=['deleted_at','date_birth'];
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
+
     protected $hidden = [
-        'remember_token',
+        'oauth',
+        'password',
+        'remember_token', 
     ];
 
     public function setPasswordAttribute($value)

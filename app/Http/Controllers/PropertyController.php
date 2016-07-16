@@ -42,9 +42,10 @@ class PropertyController extends Controller
 	public function postCreate(Request $request)
 	{
 		//
+		return $request->all();
 		$property = new Property;
 		$property->user_id = Auth::user()->id;
-		$property->title = $request->title;
+		$property->title = $request->name;
 		$property->type = $request->type;
 		$property->address = $request->address;
 		$property->city = $request->city;

@@ -1,70 +1,63 @@
-@extends('authlayout')
+
+@extends('auth_master')
 
 @section('title', 'Login')
 
 @section('content')
-  @include('pages.includes.sections.flash')
-  <p>Sign Into Your Oyster Account</p>
 
-  <form method="post" action="/login">
-    {!! csrf_field() !!}
-    <div class="form-group">
-      <label class="sr-only" for="inputEmail">Email</label>
-      <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
-      @if ($errors->has('email'))
-      <span class="help-block">
-        <strong>{{ $errors->first('email') }}</strong>
-      </span>
-      @endif
+<div class="wrapper-page">
+    <div class="panel panel-color panel-primary panel-pages">
+        <div class="panel-heading bg-img"> 
+            <div class="bg-overlay"></div>
+            <h3 class="text-center m-t-10 text-white"> Sign In to <strong>Moltran</strong> </h3>
+        </div> 
+
+
+        <div class="panel-body">
+        <form class="form-horizontal m-t-20" action="{{ Url('login') }}" method="post">
+            
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <input class="form-control input-lg" type="text" name="email" required="" placeholder="Username">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <input class="form-control input-lg" type="password" name="password" required="" placeholder="Password">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <div class="checkbox checkbox-primary">
+                        <input id="checkbox-signup" type="checkbox">
+                        <label for="checkbox-signup">
+                            Remember me
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="form-group text-center m-t-40">
+                <div class="col-xs-12">
+                    <button class="btn btn-primary btn-lg w-lg waves-effect waves-light" type="submit">Log In</button>
+                </div>
+            </div>
+
+            <div class="form-group m-t-30">
+                <div class="col-sm-7">
+                    <a href="recoverpw.html"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
+                </div>
+                <div class="col-sm-5 text-right">
+                    <a href="{{ Url('register') }}">Create an account</a>
+                </div>
+            </div>
+        </form> 
+        </div>                                 
+        
     </div>
-    <div class="form-group">
-      <label class="sr-only" for="inputPassword">Password</label>
-      <input type="password" class="form-control" id="inputPassword" name="password"
-      placeholder="Password">
-      @if ($errors->has('password'))
-      <span class="help-block">
-        <strong>{{ $errors->first('password') }}</strong>
-      </span>
-      @endif
-    </div>
-    <div class="form-group clearfix">
-      <div class="checkbox-custom checkbox-inline checkbox-primary pull-left">
-        <input type="checkbox" id="inputCheckbox" name="remember">
-        <label for="inputCheckbox">Remember me</label>
-      </div>
-      <a class="pull-right" data-toggle="modal" data-target="#myModal">Forgot password?</a>
-    </div>
-    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-  </form>
-      <p>
-    <a href="{{ Url('login/facebook') }}" class="btn btn-info" style="background-color:#244493; border-color:#244493;">FACEBOOK SIGN IN</a>
-    <a href="{{  Url('login/google') }}" class="btn btn-warning" style="background-color:red;">GOOGLE SIGN IN</a>
-    </p>
-
-  <p>Still no account? Please <a href="/register">Create Your Account</a></p>
-@endsection
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Password Reset</h4>
-      </div>
-      <form action="/password/email" class="form-horizontal"  method="post" style="width:100%;">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <div class="modal-body">
-          <input name="email" class="form-control" type="email" placeholder="Please enter your email address"
-          data-validation="required email" />
-
-
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </form>
-      </div>
-    </div>
-  </div>
 </div>
+
+@endsection

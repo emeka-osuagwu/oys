@@ -8,6 +8,7 @@ use Validator;
 use Socialite;
 use App\Http\Requests;
 use App\AuthenticateUser;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -45,7 +46,7 @@ class AuthController extends Controller
 		parent::__construct();
 	}
 
-	public function postLogin(Requests\LoginRequest $request)
+	public function postLogin(Request $request)
 	{
 		if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']])) { 
 		    return redirect()->intended('/');
@@ -57,7 +58,7 @@ class AuthController extends Controller
 		}
 	}
 
-	public function postRegister(Requests\RegisterRequest $request)
+	public function postRegister(Request $request)
 	{
 		$user = $this->userRepository->createUser($request->all());
 		return redirect()->intended('/');

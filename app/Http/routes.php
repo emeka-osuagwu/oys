@@ -1,11 +1,11 @@
 <?php
 
 Route::group(['middleware' => ['web']], function () {
-  
+
 	Route::get('/', [
 		'as' 	=> '/',
 		'uses' 	=> 'PagesController@dashboardPage'
-	])->middleware('auth');
+	]);
 
 	Route::get('login', [
 		'as' 	=> 'logout',
@@ -106,10 +106,21 @@ Route::group(['middleware' => ['web']], function () {
 	
 	Route::get('users', [
 		'as' 	=> 'savings',
-		'uses' 	=> 'RentController@earnings'
+		'uses' 	=> 'UserController@getAllUsers'
 	]);
 	
+	Route::group(['prefix' => 'user'], function () {
 
+		Route::get('create', [
+			'as' 	=> 'user.create',
+			'uses' 	=> 'UserController@getCreateUserAccount'
+		]);
+
+		Route::post('create', [
+			'as' 	=> 'user.create',
+			'uses' 	=> 'UserController@postCreateUserAccount'
+		]);
+	});
 
 	Route::get('/login/{provider}', 'OauthController@getSocialLogin');
 

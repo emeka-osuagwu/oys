@@ -2,97 +2,67 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Auth;
 use Session;
 use App\User;
-use Auth;
 use App\Http\Requests;
+use Illuminate\Http\Request;
+use App\Jobs\SendNewUserAccountInfo;
 use App\Http\Controllers\Controller;
+
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-        return view('pages.profile');
-    }
+	
+	public function getAllUsers(Request $request)
+	{
+		$users 				= $this->userRepository->getAllUser();
+		$admins 			= $this->userRepository->getUserWhere('role', 1);	
+		$tenant 			= $this->userRepository->getUserWhere('role', 3);	
+		$all_users 			= $this->userRepository->getAllUser();
+		$property_owner 	= $this->userRepository->getUserWhere('role', 2);	
+		
+		if ($request->has('admins')) 
+		{
+			$users = $admins;
+		}
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-       
-    }
+		if ($request->has('property_owners')) 
+		{
+			$users = $property_owner;
+		}
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+		if ($request->has('tenants')) 
+		{
+			$users = $tenant;
+		}
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+	 	return view('pages.users', compact('users', 'all_users', 'admins', 'tenant', 'property_owner'));
+	}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+	public function updateprofile(Request $request)
+	{
+	  //
+	   $user = User::find(Auth::user()->id);
+	 $user['name']=   $request->name;
+	 $user['email']=  $request->email;
+	 $user['phone']=  $request->phone;
+	 $user['date_birth']= $request->date_birth;
+	 $user->save();
+	 Session::flash('message', 'Profile Update Successful');
+	 return view('pages.profile');
+	}
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function updateprofile(Request $request)
-    {
-        //
-         $user = User::find(Auth::user()->id);
-       $user['name']=   $request->name;
-       $user['email']=  $request->email;
-       $user['phone']=  $request->phone;
-       $user['date_birth']= $request->date_birth;
-       $user->save();
-       Session::flash('message', 'Profile Update Successful');
-       return view('pages.profile');
-    }
+	public function getCreateUserAccount()
+	{
+		return view('pages.create_user');
+	}
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+	public function postCreateUserAccount(Request $request)
+	{
+		$request['tmp_passsword'] = substr(bcrypt($request['name']), 50); 
+		$this->userRepository->addUser($request->all());
+		$this->dispatch(new SendNewUserAccountInfo($request->all()));
+		return back();
+	}
+
 }

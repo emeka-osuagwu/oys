@@ -12,6 +12,11 @@ class UserRepository
     {
         $user = User::create($data);
     }
+
+    public function getUserWhere($field, $value)
+    {
+        return User::where($field, $value)->get();
+    }
     
     public function findByUserNameOrCreate($userData) {
         $user = User::where('email', '=', $userData->email)->first();
@@ -54,4 +59,21 @@ class UserRepository
             $user->save();
         }
     }
+
+    public function getAllUser()
+    {
+        return User::all();
+    }
+
+    public function addUser($data)
+    {
+        $create = [
+            "role"      => $data['role'],
+            "email"     => $data['email'],
+            "password"  => $data['tmp_passsword'],
+        ];
+        
+        User::create($create);
+    }
+
 }

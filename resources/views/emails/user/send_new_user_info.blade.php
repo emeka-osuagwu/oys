@@ -1,0 +1,4 @@
+welcome 
+
+{{$user['email']}}
+<br>

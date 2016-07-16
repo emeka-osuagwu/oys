@@ -61,13 +61,13 @@ class UserController extends Controller
 	public function updateprofile(Request $request)
 	{
 	  //
-	   $user = User::find(Auth::user()->id);
-	 $user['name']=   $request->name;
-	 $user['email']=  $request->email;
-	 $user['phone']=  $request->phone;
-	 $user['date_birth']= $request->date_birth;
-	 $user->save();
-	 Session::flash('message', 'Profile Update Successful');
+	 //   $user = User::find(Auth::user()->id);
+	 // $user['name']=   $request->name;
+	 // $user['email']=  $request->email;
+	 // $user['phone']=  $request->phone;
+	 // $user['date_birth']= $request->date_birth;
+	 // $user->save();
+	 // Session::flash('message', 'Profile Update Successful');
 	 return view('pages.profile');
 	}
 

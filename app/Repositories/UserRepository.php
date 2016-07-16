@@ -69,6 +69,7 @@ class UserRepository
     {
         $create = [
             "role"      => $data['role'],
+            "name"      => $data['name'],
             "email"     => $data['email'],
             "password"  => $data['tmp_passsword'],
         ];

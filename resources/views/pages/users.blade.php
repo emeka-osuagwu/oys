@@ -30,16 +30,7 @@
 	                            </div>
 	                        </div>
 	                    </div>
-	                    <h3 class="panel-title m-t-40">Labels</h3>
-	                    <div class="panel panel-default p-0 p-t-20 m-t-20">
-	                        <div class="panel-body p-0">
-	                            <div class="list-group no-border">
-	                              <a href="#" class="list-group-item no-border"><span class="fa fa-circle text-info pull-right"></span>Admins</a>
-	                              <a href="#" class="list-group-item no-border"><span class="fa fa-circle text-warning pull-right"></span>Property Owners</a>
-	                              <a href="#" class="list-group-item no-border"><span class="fa fa-circle text-purple pull-right"></span>Tenants</a>
-	                            </div>
-	                        </div>
-	                    </div>
+
 	                </div>
 	                <!-- End Left sidebar -->
 	            
@@ -65,12 +56,12 @@
 	                                            </td>
 	                                            <td>
 	                                                <a href="email-read.html">
-	                                                	@if($user->first()->role == 1)
-	                                                		<i class="fa fa-circle text-info m-r-15"></i>
-	                                                	@elseif($user->first()->role == 2)
-	                                                		<i class="fa fa-circle text-info m-r-15"></i>
-	                                                	@elseif($user->first()->role == 3)
-	                                                		<i class="fa fa-circle text-info m-r-15"></i>
+	                                                	@if($user->role == 1)
+	                                                		Admin
+	                                                	@elseif($user->role == 2)
+	                                                		Property Owner
+	                                                	@elseif($user->role == 3)
+	                                                		Tenant
 	                                                	@endif
 	                                                </a>
 	                                            </td>
@@ -87,9 +78,6 @@
 	                            <hr>
 	                            
 	                            <div class="row">
-	                                <div class="col-xs-7">
-	                                    Showing 1 - 20 of 289
-	                                </div>
 	                                <div class="col-xs-5">
 	                                    <div class="btn-group pull-right">
 	                                      <button type="button" class="btn btn-default waves-effect"><i class="fa fa-chevron-left"></i></button>

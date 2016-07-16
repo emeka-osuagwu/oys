@@ -8,94 +8,89 @@
 	    <div class="content">
 	        <div class="container">
 
-	  <div class="row">
-	      <div class="col-sm-12">
-	          <div class="panel panel-default">
-	              <div class="panel-heading"><h3 class="panel-title">Form elements</h3></div>
-	              <div class="panel-body">
-	                  <form class="form-horizontal" role="form" action="{{ Url('user/create') }}" method="post">                                    
+	            <!-- Page-Title -->
+	            <div class="row">
+	                <div class="col-sm-12">
+	                    <h4 class="pull-left page-title">Compose Mail</h4>
+	                    <ol class="breadcrumb pull-right">
+	                        <li><a href="#">Moltran</a></li>
+	                        <li><a href="#">Mail</a></li>
+	                        <li class="active">Compose Mail</li>
+	                    </ol>
+	                </div>
+	            </div>
 
-							<div class="form-group">
-							  <label class="col-md-2 control-label" for="example-email">Name</label>
-							  <div class="col-md-10">
-							      <input type="text" id="example-email" name="name" class="form-control" placeholder="Name">
-							  </div>
-							</div>
+	            <div class="row">
+	                
+	                <!-- Left sidebar -->
+	                <div class="col-md-4 col-lg-3">
+	                    <a href="inbox.html" class="btn btn-danger waves-effect waves-light btn-block">Back to Users</a>
+	                    <div class="panel panel-default p-0 m-t-20">
+	                        <div class="panel-body p-0">
+	                            <div class="list-group mail-list">
+	                              <a href="{{ Url('users') }}" class="list-group-item no-border "><i class="fa fa-download m-r-5"></i> Users <b>({{$all_users->count()}})</b></a>
+	                              <a href="{{ Url('users/?admins=true') }}" class="list-group-item no-border"><i class="fa fa-download m-r-5"></i>Admins <b>({{$admins->count()}})</b></a>
+	                              <a href="{{ Url('users/?property_owners=true') }}" class="list-group-item no-border"><i class="fa fa-download m-r-5"></i>Property Owner <b>({{$property_owner->count()}})</b></a>
+	                              <a href="{{ Url('users/?tenant=true') }}" class="list-group-item no-border"><i class="fa fa-download m-r-5"></i>Tenant <b>({{$tenant->count()}})</b></a>
+	                            </div>
+	                        </div>
+	                    </div>
 
-							<div class="form-group">
-							  <label class="col-md-2 control-label" for="example-email">Email</label>
-							  <div class="col-md-10">
-							      <input type="email" id="example-email" name="email" class="form-control" placeholder="Email">
-							  </div>
-							</div>
+	                    
+	                </div>
+	                <!-- End Left sidebar -->   
+	                
+	                <!-- Right Sidebar -->
+	                <div class="col-md-8 col-lg-9">
+	                	<form action="{{ Url('user/create') }}" method="post">
+	                    <div class="row">
+	                        <div class="col-lg-12">
+	                            <div class="btn-toolbar" role="toolbar">
+	                                <div class="pull-right">
+	                                    <button class="btn btn-purple waves-effect waves-light"> <span>Send</span> <i class="fa fa-send m-l-10"></i> </button>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    
+	                    <div class="panel panel-default m-t-20">
+	                        <div class="panel-body p-t-30">
+	                            
+	                            <div role="form">
+	                                <div class="form-group">
+	                                    <input type="email" class="form-control" name="email" placeholder="Email">
+	                                </div>
+	                                <div class="form-group">
+	                                    <div class="row">
+	                                        <div class="col-md-6">
+	                                            <input type="text" class="form-control" name="name" placeholder="Name">
+	                                        </div>
+	                                        <div class="col-md-6">
+					                            <select class="form-control" required="" name="role">
+					                                <option value="3">Tenant Account</option>
+					                                <option value="2">Property Owner</option>
+					                                <option value="1">Admin</option>
+					                            </select>
+	                                        </div>
+										</div>
+	                                </div>
+	                            </div>
+	                        </div> <!-- panel -body -->
+	                        </form>
+	                    </div> <!-- panel -->
+	                </div> <!-- End Rightsidebar -->
+	            
+	            </div><!-- End row -->
 
-							<div class="form-group">
-							  <label class="col-sm-2 control-label">Select Role</label>
-							  <div class="col-sm-10">
-							      <select class="form-control" required="" name="role">
-							          <option value="3">Tenant Account</option>
-							          <option value="2">Property Owner</option>
-							          <option value="1">Admin</option>
-							      </select>
-							  </div>
-							</div>
-
-							<div class="form-group">
-							  <div class="col-sm-10 pull-right">
-								<button type="submit" class="btn btn-purple waves-effect waves-light">Add</button>  
-							  </div>
-							</div>
-	     
-	                  </form>
-	              </div> <!-- panel-body -->
-	          </div> <!-- panel -->
-	      </div> <!-- col -->
-	  </div> <!-- End row -->
 
 
 	        </div> <!-- container -->
 	                   
 	    </div> <!-- content -->
 
-	    @include('pages.includes.sections.footer')
-	    
-	    <!-- moment js  -->
-	    <script src="{{ asset('assets/plugins/moment/moment.js') }}"></script>
+	    <footer class="footer text-right">
+	        2015 © Moltran.
+	    </footer>
 
-	    <!-- counters  -->
-	    <script src="{{ asset('assets/plugins/waypoints/lib/jquery.waypoints.js') }}"></script>
-	    <script src="{{ asset('assets/plugins/counterup/jquery.counterup.min.js') }}"></script>
-
-	    <!-- sweet alert  -->
-	    <script src="{{ asset('assets/plugins/sweetalert/dist/sweetalert.min.js') }}"></script>
-
-
-	    <!-- flot Chart -->
-	    <script src="{{ asset('assets/plugins/flot-chart/jquery.flot.js') }}"></script>
-	    <script src="{{ asset('assets/plugins/flot-chart/jquery.flot.time.js') }}"></script>
-	    <script src="{{ asset('assets/plugins/flot-chart/jquery.flot.tooltip.min.js') }}"></script>
-	    <script src="{{ asset('assets/plugins/flot-chart/jquery.flot.resize.js') }}"></script>
-	    <script src="{{ asset('assets/plugins/flot-chart/jquery.flot.pie.js') }}"></script>
-	    <script src="{{ asset('assets/plugins/flot-chart/jquery.flot.selection.js') }}"></script>
-	    <script src="{{ asset('assets/plugins/flot-chart/jquery.flot.stack.js') }}"></script>
-	    <script src="{{ asset('assets/plugins/flot-chart/jquery.flot.crosshair.js') }}"></script>
-
-	    <!-- todos app  -->
-	    <script src="{{ asset('assets/pages/jquery.todo.js') }}"></script>
-
-	    <!-- chat app  -->
-	    <script src="{{ asset('assets/pages/jquery.chat.js') }}"></script>
-
-	    <!-- dashboard  -->
-	    <script src="{{ asset('assets/pages/jquery.dashboard.js') }}"></script>
-
-	    <script type="text/javascript">
-	        jQuery(document).ready(function($) {
-	            $('.counter').counterUp({
-	                delay: 100,
-	                time: 1200
-	            });
-	        });
-	    </script>
 	</div>
 @endsection

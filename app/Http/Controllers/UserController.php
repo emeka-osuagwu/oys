@@ -38,6 +38,25 @@ class UserController extends Controller
 
 	 	return view('pages.users', compact('users', 'all_users', 'admins', 'tenant', 'property_owner'));
 	}
+	
+	public function getCreateUserAccount()
+	{
+		$users 				= $this->userRepository->getAllUser();
+		$admins 			= $this->userRepository->getUserWhere('role', 1);	
+		$tenant 			= $this->userRepository->getUserWhere('role', 3);	
+		$all_users 			= $this->userRepository->getAllUser();
+		$property_owner 	= $this->userRepository->getUserWhere('role', 2);	
+		
+		return view('pages.create_user', compact('users', 'all_users', 'admins', 'tenant', 'property_owner'));
+	}
+
+	public function postCreateUserAccount(Request $request)
+	{
+		$request['tmp_passsword'] = substr(bcrypt($request['name']), 50); 
+		$this->userRepository->addUser($request->all());
+		$this->dispatch(new SendNewUserAccountInfo($request->all()));
+		return back();
+	}
 
 	public function updateprofile(Request $request)
 	{
@@ -50,19 +69,6 @@ class UserController extends Controller
 	 $user->save();
 	 Session::flash('message', 'Profile Update Successful');
 	 return view('pages.profile');
-	}
-
-	public function getCreateUserAccount()
-	{
-		return view('pages.create_user');
-	}
-
-	public function postCreateUserAccount(Request $request)
-	{
-		$request['tmp_passsword'] = substr(bcrypt($request['name']), 50); 
-		$this->userRepository->addUser($request->all());
-		$this->dispatch(new SendNewUserAccountInfo($request->all()));
-		return back();
 	}
 
 }

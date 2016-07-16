@@ -83,6 +83,25 @@
                 <span class="site-menu-arrow"></span>
               </a>
             </li>
+            <li class="site-menu-item has-sub">
+              <a href="javascript:void(0)" data-dropdown-toggle="false">
+                <i class="site-menu-icon fa fa-briefcase fa-2x" aria-hidden="true"></i>
+                <span class="site-menu-title">Users</span>
+                <span class="site-menu-arrow"></span>
+              </a>
+              <ul class="site-menu-sub">
+                <li class="site-menu-item">
+                  <a class="animsition-link" href="{{URL::to('/users')}}">
+                    <span class="site-menu-title">View Users</span>
+                  </a>
+                </li>
+                <li class="site-menu-item">
+                  <a class="animsition-link" href="{{URL::to('/user/create')}}">
+                    <span class="site-menu-title">Add User</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
 
           </ul>
         </div>

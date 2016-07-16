@@ -16,6 +16,7 @@ class OauthController extends Controller
     private 
     $auth,
     $oauth_data;
+
     public function __construct(Guard $auth)
     {
         $this->auth = $auth;
@@ -40,6 +41,7 @@ class OauthController extends Controller
         ]);
         return redirect('/');
     }
+    
     public function findBySocaialIdOrCreate($user)
     {
         $authUser = User::firstOrNew(['oauth'=> $user->id]);

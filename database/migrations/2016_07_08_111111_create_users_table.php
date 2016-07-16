@@ -16,16 +16,18 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             
             $table->bigInteger('oauth')->nullable();
-            $table->string('email')->nullable();
+            $table->string('email');
             $table->string('password');
 
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('phone')->nullable();
             $table->date('date_birth')->nullable();
             $table->string('avatar')->nullable();
-
-            $table->integer('role')->default(0);
             
+            $table->integer('role')->default(0);
+            $table->integer('profile_status')->default(0);
+
             $table->string('remember_token')->nullable();
             $table->timestamps();
         });

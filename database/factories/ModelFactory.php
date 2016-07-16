@@ -13,9 +13,10 @@
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'role' 				=> 1,
+        'email' 			=> "admin@oyster.com",
+        'password' 			=> "password",
+        'profile_status' 	=> 0,
+        'remember_token' 	=> str_random(10),
     ];
 });

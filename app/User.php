@@ -12,10 +12,16 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','role','phone','date_birth'
+        'name', 
+        'role',
+        'email', 
+        'phone',
+        'password',
+        'last_name', 
+        'date_birth',
+        'first_name', 
+        'profile_status',
     ];
-
-    protected $date=['deleted_at','date_birth'];
 
     protected $hidden = [
         'oauth',

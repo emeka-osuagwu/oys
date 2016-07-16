@@ -11,12 +11,7 @@
 	            <!-- Page-Title -->
 	            <div class="row">
 	                <div class="col-sm-12">
-	                    <h4 class="pull-left page-title">Compose Mail</h4>
-	                    <ol class="breadcrumb pull-right">
-	                        <li><a href="#">Moltran</a></li>
-	                        <li><a href="#">Mail</a></li>
-	                        <li class="active">Compose Mail</li>
-	                    </ol>
+	                    <h4 class="pull-left page-title">Create User</h4>
 	                </div>
 	            </div>
 
@@ -24,7 +19,7 @@
 	                
 	                <!-- Left sidebar -->
 	                <div class="col-md-4 col-lg-3">
-	                    <a href="inbox.html" class="btn btn-danger waves-effect waves-light btn-block">Back to Users</a>
+	                    <a href="{{ Url('users') }}" class="btn btn-danger waves-effect waves-light btn-block">Back to Users</a>
 	                    <div class="panel panel-default p-0 m-t-20">
 	                        <div class="panel-body p-0">
 	                            <div class="list-group mail-list">

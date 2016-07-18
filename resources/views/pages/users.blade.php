@@ -72,9 +72,9 @@
 														<span class="ion-gear-b"></span>
 														</button>
 														<ul class="dropdown-menu">
-															<li><a href="#fakelink">View Profile</a></li>
+															<li><a href="{{ Url('user/' . $user->id) }}">View Profile</a></li>
 															<li><a href="#fakelink">Delete</a></li>
-															<li><a href="#fakelink">Send Message</a></li>
+															<li><a href="#fakelink" data-toggle="modal" data-target="#con-close-modal{{$user->id}}">Send Message</a></li>
 														</ul>
 													</div>
 												</td>
@@ -82,6 +82,58 @@
 	                                                {{$user->first()->created_at->diffForHumans()}}
 	                                            </td>
 	                                        </tr>
+	                                        @endforeach
+
+	                                        @foreach($users as $user)
+	                                        	<div id="con-close-modal{{$user->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none">
+	                                        	   <form action="{{ Url('user/sendmessage') }}" method="post">
+		                                        	    <div class="modal-dialog"> 
+		                                        	        <div class="modal-content"> 
+		                                        	            <div class="modal-header"> 
+		                                        	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> 
+		                                        	                <h4 class="modal-title">Modal Content is Responsive</h4> 
+		                                        	            </div> 
+		                                        	            <div class="modal-body"> 
+		                                        	                <div class="row"> 
+		                                        	                    <div class="col-md-6"> 
+		                                        	                        <div class="form-group"> 
+		                                        	                            <label for="field-1" class="control-label">From</label> 
+		                                        	                            <input type="text" class="form-control" id="field-1" placeholder="" name="sender" value="{{ Auth::user()->email }}"> 
+		                                        	                        </div> 
+		                                        	                    </div> 
+		                                        	                    <div class="col-md-6"> 
+		                                        	                        <div class="form-group"> 
+		                                        	                            <label for="field-2" class="control-label">To</label> 
+		                                        	                            <input type="text" class="form-control" id="field-2" placeholder="" name="receiver" value="{{$user->email}}"> 
+		                                        	                        </div> 
+		                                        	                    </div> 
+		                                        	                </div> 
+		                                        	                <div class="row"> 
+		                                        	                    <div class="col-md-12"> 
+		                                        	                        <div class="form-group"> 
+		                                        	                            <label for="field-3" class="control-label">Subject</label> 
+		                                        	                            <input type="text" class="form-control" id="field-3" name="subject" placeholder="Subject"> 
+		                                        	                        </div> 
+		                                        	                    </div> 
+		                                        	                </div> 
+		                                        	                <div class="row"> 
+		                                        	                    <div class="col-md-12"> 
+		                                        	                        <div class="form-group no-margin"> 
+		                                        	                            <label for="field-7" class="control-label">Message</label> 
+		                                        	                            <textarea name="message" class="form-control autogrow" id="field-7" placeholder="Write your message here" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px"></textarea> 
+		                                        	                        </div> 
+		                                        	                    </div> 
+		                                        	                </div> 
+		                                        	            </div> 
+		                                        	            <div class="modal-footer"> 
+		                                        	            <br>
+		                                        	                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button> 
+		                                        	                <button type="submit" class="btn btn-info waves-effect waves-light">Save changes</button> 
+		                                        	            </div> 
+		                                        	        </div> 
+		                                        	    </div>
+	                                        		</form>
+	                                        	</div>
 	                                        @endforeach
 
 	                                    </tbody>

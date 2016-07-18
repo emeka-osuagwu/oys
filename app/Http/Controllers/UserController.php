@@ -6,9 +6,11 @@ use Auth;
 use Session;
 use App\User;
 use App\Http\Requests;
+use App\Jobs\SendEmail;
 use Illuminate\Http\Request;
 use App\Jobs\SendNewUserAccountInfo;
 use App\Http\Controllers\Controller;
+
 
 class UserController extends Controller
 {
@@ -56,6 +58,11 @@ class UserController extends Controller
 		$this->userRepository->addUser($request->all());
 		$this->dispatch(new SendNewUserAccountInfo($request->all()));
 		return back();
+	}
+
+	public function sendUserEmail(Request $request)
+	{
+		$this->dispatch(new SendEmail($request->all()));
 	}
 
 	public function updateprofile(Request $request)

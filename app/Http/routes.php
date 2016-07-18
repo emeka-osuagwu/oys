@@ -120,6 +120,11 @@ Route::group(['middleware' => ['web']], function () {
 			'as' 	=> 'user.create',
 			'uses' 	=> 'UserController@postCreateUserAccount'
 		]);
+
+		Route::post('sendmessage', [
+			'as' 	=> 'user.sendmessage',
+			'uses' 	=> 'UserController@sendUserEmail'
+		]);
 	});
 
 	Route::get('/login/{provider}', 'OauthController@getSocialLogin');

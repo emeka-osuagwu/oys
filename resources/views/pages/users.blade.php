@@ -52,7 +52,7 @@
 	                                                </div>
 	                                            </td>
 	                                            <td>
-	                                                <a href="email-read.html">{{ $user->first()->name }}</a>
+	                                                <a href="email-read.html">{{ $user->first()->name ? $user->first()->name : "Name Unknown" }}</a>
 	                                            </td>
 	                                            <td>
 	                                                <a href="email-read.html">
@@ -65,6 +65,19 @@
 	                                                	@endif
 	                                                </a>
 	                                            </td>
+	                                            <td class="text-right">
+	                                                <div class="btn-group col-md-5">
+														<button type="button" class="btn btn-primary waves-effect waves-light dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+														
+														<span class="ion-gear-b"></span>
+														</button>
+														<ul class="dropdown-menu">
+															<li><a href="#fakelink">View Profile</a></li>
+															<li><a href="#fakelink">Delete</a></li>
+															<li><a href="#fakelink">Send Message</a></li>
+														</ul>
+													</div>
+												</td>
 	                                            <td class="text-right">
 	                                                {{$user->first()->created_at->diffForHumans()}}
 	                                            </td>

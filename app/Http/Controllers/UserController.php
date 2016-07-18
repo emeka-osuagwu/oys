@@ -41,6 +41,12 @@ class UserController extends Controller
 	 	return view('pages.users', compact('users', 'all_users', 'admins', 'tenant', 'property_owner'));
 	}
 	
+	public function getUser($id)
+	{
+		return view('pages.profile');
+		return $id;
+	}
+
 	public function getCreateUserAccount()
 	{
 		$users 				= $this->userRepository->getAllUser();

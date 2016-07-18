@@ -121,6 +121,11 @@ Route::group(['middleware' => ['web']], function () {
 			'uses' 	=> 'UserController@postCreateUserAccount'
 		]);
 
+		Route::get('{id}', [
+			'as' 	=> 'user.{id}',
+			'uses' 	=> 'UserController@getUser'
+		]);
+
 		Route::post('sendmessage', [
 			'as' 	=> 'user.sendmessage',
 			'uses' 	=> 'UserController@sendUserEmail'

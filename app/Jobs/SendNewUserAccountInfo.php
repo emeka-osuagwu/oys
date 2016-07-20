@@ -23,7 +23,7 @@ class SendNewUserAccountInfo extends Job
         $user = $this->user;
 
         Mail::send('emails.user.send_new_user_info', compact('user'), function ($message) use ($user) {
-            $message->to($user['email'])->subject("Welcome your Oyster " . $user['name']);
+            $message->to($user['email'])->subject("Welcome to Oyster " . $user['name']);
         });
     }
 }

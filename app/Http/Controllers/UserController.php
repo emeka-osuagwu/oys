@@ -43,8 +43,8 @@ class UserController extends Controller
 	
 	public function getUser($id)
 	{
-		return view('pages.profile');
-		return $id;
+		$user = $this->userRepository->getUserWhere('id', $id);
+		return view('pages.profile', compact('user'));
 	}
 
 	public function getCreateUserAccount()

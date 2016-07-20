@@ -16,7 +16,3 @@
 <script src="{{ asset('assets/js/jquery.scrollTo.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.app.js') }}"></script>
 
-<script src="{{ asset('assets/plugins/sweetalert/dist/sweetalert.min.js') }}"></script>
-<script src="{{ asset('assets/pages/jquery.sweet-alert.init.js') }}"></script>
-
-

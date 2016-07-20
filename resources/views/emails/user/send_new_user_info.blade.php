@@ -1,4 +1,4 @@
 welcome 
 
-{{$data['email']}}
+{{$user['email']}}
 <br>

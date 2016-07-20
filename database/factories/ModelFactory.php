@@ -24,7 +24,7 @@
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'role' 				=> rand(1, 3),
-        'email' 			=> $faker->email,
+        'email' 			=> rand(1, 10000)."emeka@gmail.com",
         'password' 			=> "password",
         'profile_status' 	=> rand(0, 1),
         'remember_token' 	=> str_random(10),

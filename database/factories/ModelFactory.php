@@ -21,7 +21,7 @@
 //     ];
 // });
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\User::class, function () {
     return [
         'role' 				=> rand(1, 3),
         'email' 			=> rand(1, 10000)."emeka@gmail.com",

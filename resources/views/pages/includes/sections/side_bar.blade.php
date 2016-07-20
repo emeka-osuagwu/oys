@@ -6,23 +6,31 @@
 			  </div>
 			  <div class="user-info">
 				  <div class="dropdown">
-					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">John Doe <span class="caret"></span></a>
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{Auth::user()->first_name}}<span class="caret"></span></a>
 					  <ul class="dropdown-menu">
-						  <li><a href="javascript:void(0)"><i class="md md-face-unlock"></i> Profile<div class="ripple-wrapper"></div></a></li>
+						  <li><a href="{{ Url('user') }}"><i class="md md-face-unlock"></i> Profile<div class="ripple-wrapper"></div></a></li>
 						  <li><a href="javascript:void(0)"><i class="md md-settings"></i> Settings</a></li>
 						  <li><a href="javascript:void(0)"><i class="md md-lock"></i> Lock screen</a></li>
-						  <li><a href="javascript:void(0)"><i class="md md-settings-power"></i> Logout</a></li>
+						  <li><a href="{{ Url('logout') }}"><i class="md md-settings-power"></i> Logout</a></li>
 					  </ul>
 				  </div>
 				  
-				  <p class="text-muted m-0">Administrator</p>
+				  <p class="text-muted m-0">
+				  	@if(Auth::user()->role == 1)
+				  		Admin
+				  	@elseif(Auth::user()->role == 2)
+				  		Property Owner
+				  	@elseif(Auth::user()->role == 3)
+				  		Tenant
+				  	@endif
+				  </p>
 			  </div>
 		  </div>
 		  <!--- Divider -->
 		  <div id="sidebar-menu">
 			  	<ul>
 					<li>
-						<a href="index.html" class="waves-effect waves-light active"><i class="md md-home"></i><span> Dashboard </span></a>
+						<a href="{{ Url('/') }}" class="waves-effect waves-light active"><i class="md md-home"></i><span> Dashboard </span></a>
 				  	</li>
 
 				  	<li class="has_sub">

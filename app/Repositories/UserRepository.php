@@ -23,10 +23,12 @@ class UserRepository
         $update = [
 
             "email"             => $data['email'],
+            "city"              => $data['city'],
+            "phone"             => $data['phone'],
             "last_name"         => $data['last_name'],
             "first_name"        => $data['first_name'],
             "description"       => $data['description'],
-            "profile_status"   => 1,
+            "profile_status"    => 1,
         ];
 
         User::where('id', $data['user_id'])->update($update);

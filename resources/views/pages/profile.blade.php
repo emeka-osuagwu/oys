@@ -42,26 +42,15 @@
 		                        <span class="hidden-xs">Projects</span> 
 		                    </a> 
 		                </li> 
+		                @if(Auth::user()->id == $user->first()->id)
 		                <li class="tab"> 
 		                    <a href="#settings-2" data-toggle="tab" aria-expanded="false" class=""> 
 		                        <span class="visible-xs"><i class="fa fa-cog"></i></span> 
 		                        <span class="hidden-xs">Settings</span> 
 		                    </a> 
 		                </li> 
+		                @endif
 		            <div class="indicator"></div></ul> 
-		            </div>
-		            <div class="col-lg-6 col-md-3 col-sm-3 hidden-xs">
-		                <div class="pull-right">
-		                    <div class="dropdown">
-		                        <a data-toggle="dropdown" class="dropdown-toggle btn-rounded btn btn-primary waves-effect waves-light" href="#"> Following <span class="caret"></span></a>
-		                        <ul class="dropdown-menu dropdown-menu-right" role="menu">
-		                            <li><a href="#">Poke</a></li>
-		                            <li><a href="#">Private message</a></li>
-		                            <li class="divider"></li>
-		                            <li><a href="#">Unfollow</a></li>
-		                        </ul>
-		                    </div>
-		                  </div>
 		            </div>
 		        </div>
 		        
@@ -69,6 +58,7 @@
 		            <div class="col-lg-12"> 
 		            
 		            <div class="tab-content profile-tab-content"> 
+		               
 		                <div class="tab-pane active" id="home-2"> 
 		                    <div class="row">
 		                        <div class="col-md-4">
@@ -81,22 +71,22 @@
 		                                    <div class="about-info-p">
 		                                        <strong>Full Name</strong>
 		                                        <br>
-		                                        <p class="text-muted">Johnathan Deo</p>
+		                                        <p class="text-muted">{{$user->first()->first_name}} {{$user->first()->last_name}}</p>
 		                                    </div>
 		                                    <div class="about-info-p">
 		                                        <strong>Mobile</strong>
 		                                        <br>
-		                                        <p class="text-muted">(123) 123 1234</p>
+		                                        <p class="text-muted">{{$user->first()->phone}}</p>
 		                                    </div>
 		                                    <div class="about-info-p">
 		                                        <strong>Email</strong>
 		                                        <br>
-		                                        <p class="text-muted">johnathandeon @moltran.com</p>
+		                                        <p class="text-muted">{{$user->first()->email}}</p>
 		                                    </div>
 		                                    <div class="about-info-p m-b-0">
 		                                        <strong>Location</strong>
 		                                        <br>
-		                                        <p class="text-muted">USA</p>
+		                                        <p class="text-muted">{{$user->first()->city}}</p>
 		                                    </div>
 		                                </div> 
 		                            </div>
@@ -126,11 +116,7 @@
 		                                    <h3 class="panel-title">Biography</h3> 
 		                                </div> 
 		                                <div class="panel-body"> 
-		                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-
-		                                    <p><strong>But also the leap into electronic typesetting, remaining essentially unchanged.</strong></p>
-
-		                                    <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+		                                    <p>{{$user->first()->description}}</p>
 		                                </div> 
 		                            </div>
 		                            <!-- Personal-Information -->
@@ -183,9 +169,6 @@
 
 		                    </div>
 		                </div> 
-
-
-
 
 		                <div class="tab-pane" id="profile-2">
 		                    <!-- Personal-Information -->
@@ -244,8 +227,6 @@
 		                    </div>
 		                    <!-- Personal-Information -->
 		                </div> 
-
-
 
 		                <div class="tab-pane" id="messages-2">
 		                    <!-- Personal-Information -->
@@ -342,11 +323,15 @@
 			                                    <label for="Username">Image</label>
 			                                    <input type="file" id="Username" class="form-control">
 			                                </div>
-											<!-- 		                                
 											<div class="form-group">
-			                                    <label for="Password">Password</label>
-			                                    <input type="password" placeholder="6 - 15 Characters" id="Password" class="form-control">
+			                                    <label for="Password">Mobile Number</label>
+			                                    <input type="tel" placeholder="090 *** *** **" class="form-control" name="phone" required>
 			                                </div>
+											<div class="form-group">
+			                                    <label for="Password">Location</label>
+			                                    <input type="text" placeholder="Your Location" class="form-control" name="city" required>
+			                                </div>
+											<!-- 		                                
 			                                <div class="form-group">
 			                                    <label for="RePassword">Re-Password</label>
 			                                    <input type="password" placeholder="6 - 15 Characters" id="RePassword" class="form-control">

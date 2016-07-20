@@ -69,6 +69,8 @@ class UserController extends Controller
 	public function sendUserEmail(Request $request)
 	{
 		$this->dispatch(new SendEmail($request->all()));
+		session()->flash('send-message', 'good');
+		return back();
 	}
 
 	public function updateprofile(Request $request)

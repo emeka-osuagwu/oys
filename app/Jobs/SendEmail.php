@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use Mail;
 use App\Jobs\Job;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -30,6 +31,11 @@ class SendEmail extends Job implements ShouldQueue
      */
     public function handle()
     {
-        dd($this->data);
+        $data = $this->data;
+
+        Mail::send('emails.user.send_user_email', compact('data'), function ($message) use ($data) {
+            $message->from($data['sender']);
+            $message->to($data['receiver'])->subject($data['subject']);
+        });
     }
 }

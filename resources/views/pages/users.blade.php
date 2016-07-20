@@ -2,7 +2,13 @@
 @extends('master')
 
 @section('content')
+
 	@include('pages.includes.sections.side_bar')
+	@if (Session::has('send_message'))
+	    <script>
+	    	swal("Here's a message!")
+		</script>
+	@endif     
 	<div class="content-page">
 	    <!-- Start content -->
 	    <div class="content">

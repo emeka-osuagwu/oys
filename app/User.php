@@ -19,7 +19,9 @@ class User extends Authenticatable
         'password',
         'last_name', 
         'date_birth',
+        'description',
         'first_name', 
+        'access_level',
         'profile_status',
     ];
 

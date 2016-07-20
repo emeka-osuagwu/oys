@@ -317,46 +317,53 @@
 		                    <!-- Personal-Information -->
 		                </div> 
 
-
+		                @if(Auth::user()->id == $user->first()->id)
 		                <div class="tab-pane" id="settings-2">
-		                    <!-- Personal-Information -->
-		                    <div class="panel panel-default panel-fill">
-		                        <div class="panel-heading"> 
-		                            <h3 class="panel-title">Edit Profile</h3> 
-		                        </div> 
-		                        <div class="panel-body"> 
-		                            <form role="form">
-		                                <div class="form-group">
-		                                    <label for="FullName">Full Name</label>
-		                                    <input type="text" value="{{$user->first()->first_namel}} {{$user->first()->last_name}} " id="FullName" class="form-control">
-		                                </div>
-		                                <div class="form-group">
-		                                    <label for="Email">Email</label>
-		                                    <input type="email" value="{{$user->first()->email}}" id="Email" class="form-control">
-		                                </div>
-		                                <div class="form-group">
-		                                    <label for="Username">Username</label>
-		                                    <input type="text" value="john" id="Username" class="form-control">
-		                                </div>
-		                                <div class="form-group">
-		                                    <label for="Password">Password</label>
-		                                    <input type="password" placeholder="6 - 15 Characters" id="Password" class="form-control">
-		                                </div>
-		                                <div class="form-group">
-		                                    <label for="RePassword">Re-Password</label>
-		                                    <input type="password" placeholder="6 - 15 Characters" id="RePassword" class="form-control">
-		                                </div>
-		                                <div class="form-group">
-		                                    <label for="AboutMe">About Me</label>
-		                                    <textarea style="height: 125px" id="AboutMe" class="form-control">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</textarea>
-		                                </div>
-		                                <button class="btn btn-primary waves-effect waves-light w-md" type="submit">Save</button>
-		                            </form>
+		                    <form action="{{ Url('user/update') }}" method="post">
+			                    <div class="panel panel-default panel-fill">
+			                        <div class="panel-heading"> 
+			                            <h3 class="panel-title">Edit Profile</h3> 
+			                        </div> 
+			                        <div class="panel-body"> 
+			                            <form role="form">
+			                                <div class="form-group">
+			                                    <label for="FullName">First Name</label>
+			                                    <input type="text" value="{{$user->first()->first_name}}" id="FullName" name="first_name" class="form-control" required>
+			                                </div>
+			                                <div class="form-group">
+			                                    <label for="FullName">Last Name</label>
+			                                    <input type="text" value="{{$user->first()->last_name}}" name="last_name" id="FullName" class="form-control" required>
+			                                </div>
+			                                <div class="form-group">
+			                                    <label for="Email">Email</label>
+			                                    <input type="email" name="email" value="{{$user->first()->email}}" id="Email" class="form-control" required>
+			                                </div>
+			                                <div class="form-group">
+			                                    <label for="Username">Image</label>
+			                                    <input type="file" id="Username" class="form-control">
+			                                </div>
+											<!-- 		                                
+											<div class="form-group">
+			                                    <label for="Password">Password</label>
+			                                    <input type="password" placeholder="6 - 15 Characters" id="Password" class="form-control">
+			                                </div>
+			                                <div class="form-group">
+			                                    <label for="RePassword">Re-Password</label>
+			                                    <input type="password" placeholder="6 - 15 Characters" id="RePassword" class="form-control">
+			                                </div> -->
+			                                <div class="form-group">
+			                                    <label for="AboutMe">About Me</label>
+			                                    <textarea style="height: 125px" id="AboutMe" name="description" class="form-control" required>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</textarea>
+			                                </div>
+			                                <button class="btn btn-primary waves-effect waves-light w-md" type="submit">Save</button>
+			                            </form>
 
-		                        </div> 
-		                    </div>
-		                    <!-- Personal-Information -->
-		                </div> 
+			                        </div> 
+			                    </div>
+		        			</form>
+		                </div>
+		                @endif
+
 		            </div> 
 		        </div>
 		        </div>

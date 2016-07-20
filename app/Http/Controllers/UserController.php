@@ -40,6 +40,12 @@ class UserController extends Controller
 
 	 	return view('pages.users', compact('users', 'all_users', 'admins', 'tenant', 'property_owner'));
 	}
+
+	public function userProfile()
+	{
+		$user = $this->userRepository->getUserWhere('id', Auth::user()->id);
+		return view('pages.profile', compact('user'));	
+	}
 	
 	public function getUser($id)
 	{
@@ -63,6 +69,13 @@ class UserController extends Controller
 		$request['tmp_passsword'] = substr(bcrypt($request['name']), 50); 
 		$this->userRepository->addUser($request->all());
 		$this->dispatch(new SendNewUserAccountInfo($request->all()));
+		return back();
+	}
+
+	public function updateUser(Request $request)
+	{
+		$request['user_id'] = Auth::user()->id;
+		$this->userRepository->updateUser($request->all());
 		return back();
 	}
 

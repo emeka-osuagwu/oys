@@ -24,8 +24,10 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->date('date_birth')->nullable();
             $table->string('avatar')->nullable();
+            $table->string('description')->nullable();
             
             $table->integer('role')->default(0);
+            $table->integer('access_level')->default(0);
             $table->integer('profile_status')->default(0);
 
             $table->string('remember_token')->nullable();

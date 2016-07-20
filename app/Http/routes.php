@@ -31,11 +31,6 @@ Route::group(['middleware' => ['web']], function () {
 		'as' 	=> 'logout',
 		'uses' 	=> 'Auth\AuthController@postRegister'
 	]);
-
-	Route::get('profile', [
-		'as' 	=> 'logout',
-		'uses' 	=> 'UserController@updateprofile'
-	]);
 	
 	Route::get('properties', [
 		'as' 	=> 'properties',
@@ -111,6 +106,11 @@ Route::group(['middleware' => ['web']], function () {
 	
 	Route::group(['prefix' => 'user'], function () {
 
+		Route::get('/', [
+			'as' 	=> 'user',
+			'uses' 	=> 'UserController@userProfile'
+		]);
+
 		Route::get('create', [
 			'as' 	=> 'user.create',
 			'uses' 	=> 'UserController@getCreateUserAccount'
@@ -119,6 +119,11 @@ Route::group(['middleware' => ['web']], function () {
 		Route::post('create', [
 			'as' 	=> 'user.create',
 			'uses' 	=> 'UserController@postCreateUserAccount'
+		]);
+
+		Route::post('update', [
+			'as' 	=> 'user.update',
+			'uses' 	=> 'UserController@updateUser'
 		]);
 
 		Route::get('{id}', [

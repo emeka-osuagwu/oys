@@ -18,6 +18,36 @@ class UserRepository
         return User::where($field, $value)->get();
     }
     
+    public function updateUser($data)
+    {
+        $update = [
+
+            "email"             => $data['email'],
+            "last_name"         => $data['last_name'],
+            "first_name"        => $data['first_name'],
+            "description"       => $data['description'],
+            "profile_status"   => 1,
+        ];
+
+        User::where('id', $data['user_id'])->update($update);
+    }
+
+    public function getAllUser()
+    {
+        return User::all();
+    }
+
+    public function addUser($data)
+    {
+        $create = [
+            "role"      => $data['role'],
+            "email"     => $data['email'],
+            "password"  => $data['tmp_passsword'],
+        ];
+        
+        User::create($create);
+    }
+
     public function findByUserNameOrCreate($userData) {
         $user = User::where('email', '=', $userData->email)->first();
         if(!$user) {
@@ -60,20 +90,5 @@ class UserRepository
         }
     }
 
-    public function getAllUser()
-    {
-        return User::all();
-    }
-
-    public function addUser($data)
-    {
-        $create = [
-            "role"      => $data['role'],
-            "email"     => $data['email'],
-            "password"  => $data['tmp_passsword'],
-        ];
-        
-        User::create($create);
-    }
 
 }

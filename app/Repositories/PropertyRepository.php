@@ -27,7 +27,8 @@ class PropertyRepository
     		"state" => $data['state'],
     		"description" => $data['description'],
     		"price" => $data['price'],
-    	
     	];
+
+    	Property::create($create);
     }
 }

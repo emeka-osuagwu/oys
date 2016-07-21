@@ -38,28 +38,28 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Address</label>
                                         <div class="col-md-10">
-                                            <input type="text" name="address" class="form-control" value="Address" required>
+                                            <input type="text" name="address" class="form-control"  required>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">City</label>
                                         <div class="col-md-10">
-                                            <input type="text" name="city" class="form-control" value="City" required>
+                                            <input type="text" name="city" class="form-control"  required>
                                         </div>
                                     </div>   
 
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">State</label>
                                         <div class="col-md-10">
-                                            <input type="text" name="state" class="form-control" value="State" required>
+                                            <input type="text" name="state" class="form-control"  required>
                                         </div>
                                     </div>   
 
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Type</label>
                                         <div class="col-md-10">
-                                            <input type="text" name="type" class="form-control" value="Type" required>
+                                            <input type="text" name="type" class="form-control" required>
                                         </div>
                                     </div>
 

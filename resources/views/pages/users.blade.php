@@ -17,7 +17,7 @@
 	            <!-- Page-Title -->
 	            <div class="row">
 	                <div class="col-sm-12">
-	                    <h4 class="pull-left page-title">Inbox</h4>
+	                    <h4 class="pull-left page-title">Users</h4>
 	                </div>
 	            </div>
 

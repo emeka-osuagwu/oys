@@ -1,6 +1,6 @@
 <?php
 
-/*
+
 |--------------------------------------------------------------------------
 | Model Factories
 |--------------------------------------------------------------------------
@@ -11,22 +11,22 @@
 |
 */
 
-// $factory->define(App\User::class, function (Faker\Generator $faker) {
-//     return [
-//         'role' 				=> 1,
-//         'email' 			=> "admin@oyster.com",
-//         'password' 			=> "password",
-//         'profile_status' 	=> 0,
-//         'remember_token' 	=> str_random(10),
-//     ];
-// });
-
-$factory->define(App\User::class, function () {
+$factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
-        'role' 				=> rand(1, 3),
-        'email' 			=> rand(1, 10000)."emeka@gmail.com",
+        'role' 				=> 1,
+        'email' 			=> "admin@oyster.com",
         'password' 			=> "password",
-        'profile_status' 	=> rand(0, 1),
+        'profile_status' 	=> 0,
         'remember_token' 	=> str_random(10),
     ];
 });
+
+// $factory->define(App\User::class, function () {
+//     return [
+//         'role' 				=> rand(1, 3),
+//         'email' 			=> rand(1, 10000)."emeka@gmail.com",
+//         'password' 			=> "password",
+//         'profile_status' 	=> rand(0, 1),
+//         'remember_token' 	=> str_random(10),
+//     ];
+// });

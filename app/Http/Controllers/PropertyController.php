@@ -30,7 +30,7 @@ class PropertyController extends Controller
 
 	public function index()
 	{
-		$properties = $this->propertyRepository->getPropertyWhere('id', Auth::user()->id);
+		return $properties = $this->propertyRepository->getPropertyWhere('id', Auth::user()->id);
 		return view('pages.properties',compact('properties'));
 	}
 

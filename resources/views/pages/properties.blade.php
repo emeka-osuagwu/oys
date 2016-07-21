@@ -29,11 +29,13 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>First Name</th>
-                                                        <th>Last Name</th>
-                                                        <th>Username</th>
-                                                        <th>Age</th>
+                                                        <th>Title</th>
+                                                        <th>Price</th>
+                                                        <th>Address</th>
                                                         <th>City</th>
+                                                        <th>State</th>
+                                                        <th>Type</th>
+                                                        <th>Description</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -42,30 +44,6 @@
                                                         <td>Mark</td>
                                                         <td>Otto</td>
                                                         <td>@mdo</td>
-                                                        <td>20</td>
-                                                        <td>Cityname</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                        <td>20</td>
-                                                        <td>Cityname</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                        <td>20</td>
-                                                        <td>Cityname</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>4</td>
-                                                        <td>Steve</td>
-                                                        <td>Mac Queen</td>
-                                                        <td>@steve</td>
                                                         <td>20</td>
                                                         <td>Cityname</td>
                                                     </tr>

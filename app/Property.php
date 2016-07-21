@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Property extends Model
 {
     //
-    protected $fillable=['state','city','title','address','description','price','type'];
+    protected $fillable=['state','city','title','address','description','price','type', 'user_id'];
 
     protected $dates=['deleted_at'];
 

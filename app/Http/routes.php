@@ -106,7 +106,7 @@ Route::group(['middleware' => ['web']], function () {
 	
 	Route::get('users', [
 		'as' 	=> 'savings',
-		'uses' 	=> 'RentController@earnings'
+		'uses' 	=> 'UserController@getAllUsers'
 	]);
 	
 

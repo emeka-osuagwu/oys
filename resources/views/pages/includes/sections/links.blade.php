@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="{{URL::asset('global/vendor/intro-js/introjs.min3f0d.css?v2.2.0')}}">
   <link rel="stylesheet" href="{{URL::asset('global/vendor/slidepanel/slidePanel.min3f0d.css?v2.2.0')}}">
   <link rel="stylesheet" href="{{URL::asset('global/vendor/flag-icon-css/flag-icon.min3f0d.css?v2.2.0')}}">
+  <link rel="stylesheet" href="{{URL::asset('assets/examples/css/apps/media.css')}}">
 
   <!-- Plugins For This Page -->
   <link rel="stylesheet" href="{{URL::asset('global/vendor/chartist-js/chartist.min3f0d.css?v2.2.0')}}">

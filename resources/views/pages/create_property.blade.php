@@ -66,8 +66,6 @@
 								<textarea rows="5" class="form-control " name= "description" maxlength="300" required=""></textarea>
 								<label class="floating-label">Description</label>
 							</div>
-
-
 							<button type="submit" class="btn btn-primary btn-block">Submit</button>
 
 						</form>

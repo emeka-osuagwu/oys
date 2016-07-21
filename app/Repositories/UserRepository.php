@@ -54,4 +54,9 @@ class UserRepository
             $user->save();
         }
     }
+
+    public function getAllUser()
+    {
+        return User::all();
+    }
 }

@@ -41,18 +41,10 @@ class PropertyController extends Controller
 
 	public function postCreate(Request $request)
 	{
-		//
-		return $request->all();
-		$property = new Property;
-		$property->user_id = Auth::user()->id;
-		$property->title = $request->name;
-		$property->type = $request->type;
-		$property->address = $request->address;
-		$property->city = $request->city;
-		$property->state= $request->state;
-		$property->description = $request->description;
-		$property->price =$this->tofloat($request->price);
-		$property->save();
+		$request['price'] 		= $this->tofloat($request->price);
+		$request['user_id'] 	= Auth::user()->id;
+
+		$this->propertyRepository->createProperty($request->all());
 
 		Session::flash('message', 'You have successfully added your property.');
 		return back();

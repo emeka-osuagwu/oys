@@ -22,4 +22,9 @@ class PagesController extends Controller
 		return view('pages.register');
 	}
 
+	public function getCreateProperty()
+	{
+		return view('pages.create_property');
+	}
+
 }

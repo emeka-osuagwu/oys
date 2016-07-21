@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Repositories\UserRepository;
 use App\Repositories\PropertyRepository;
+use App\Repositories\ValidationRepository;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -24,7 +25,8 @@ class Controller extends BaseController
             'postRegister',
         ]]);
 
-    	$this->userRepository 		= new UserRepository;
-    	$this->propertyRepository 	= new PropertyRepository;
+        $this->userRepository           = new UserRepository;
+        $this->propertyRepository       = new PropertyRepository;
+        $this->validationRepository     = new ValidationRepository;
     }
 }

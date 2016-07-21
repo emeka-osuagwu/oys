@@ -66,7 +66,7 @@ class UserController extends Controller
 
 	public function postCreateUserAccount(Request $request)
 	{
-		$request['tmp_passsword'] = substr(bcrypt($request['name']), 50); 
+		$request['tmp_password'] = substr(bcrypt($request['name']), 50); 
 		$this->userRepository->addUser($request->all());
 		$this->dispatch(new SendNewUserAccountInfo($request->all()));
 		return back();

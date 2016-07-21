@@ -44,7 +44,7 @@ class UserRepository
         $create = [
             "role"      => $data['role'],
             "email"     => $data['email'],
-            "password"  => $data['tmp_passsword'],
+            "password"  => $data['tmp_password'],
         ];
         
         User::create($create);

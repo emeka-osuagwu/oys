@@ -13,6 +13,7 @@ class CheckUserProfileValidation
         $pass_routes_with_out_token = [
             "login",
             "user",
+            "logout",
             "user/update",
         ];
 

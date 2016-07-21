@@ -14,7 +14,15 @@
 	                    <h4 class="pull-left page-title"></h4>
 	                </div>
 	            </div>
-
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 	            <div class="row">
                     <div class="col-sm-12">
                         <div class="panel panel-default">
@@ -24,7 +32,7 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Title</label>
                                         <div class="col-md-10">
-                                            <input type="text" name="title" class="form-control" required>
+                                            <input type="text" name="title" class="form-control" required placeholder="Title">
                                         </div>
                                     </div>
 
@@ -38,37 +46,37 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Address</label>
                                         <div class="col-md-10">
-                                            <input type="text" name="address" class="form-control"  required>
+                                            <input type="text" name="address" class="form-control" placeholder="Address" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">City</label>
                                         <div class="col-md-10">
-                                            <input type="text" name="city" class="form-control"  required>
+                                            <input type="text" name="city" class="form-control" placeholder="City" required>
                                         </div>
                                     </div>   
 
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">State</label>
                                         <div class="col-md-10">
-                                            <input type="text" name="state" class="form-control"  required>
+                                            <input type="text" name="state" class="form-control" placeholder="State" required>
                                         </div>
                                     </div>   
 
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Type</label>
                                         <div class="col-md-10">
-                                            <input type="text" name="type" class="form-control" required>
+                                            <input type="text" name="type" class="form-control" placeholder="Type" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Description</label>
                                         <div class="col-md-10">
-                                            <textarea class="form-control" rows="5" name="description"></textarea>
+                                            <textarea class="form-control" rows="5" name="description" placeholder="Description" ></textarea>
                                         </div>
-                                    </div
+                                    </div>
 
                                     <div class="form-group">
                                      <div class="pull-right" style="margin-right:20px;">

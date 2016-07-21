@@ -33,7 +33,7 @@ class UserController extends Controller
 			$users = $property_owner;
 		}
 
-		if ($request->has('tenants')) 
+		if ($request->has('tenant')) 
 		{
 			$users = $tenant;
 		}

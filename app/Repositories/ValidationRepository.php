@@ -6,7 +6,7 @@ use Validator;
 
 class ValidationRepository 
 {
-    public function CreatePropertyRequest($data)
+    public function createPropertyRequest($data)
     {   
         $validator = Validator::make($data, [
             'email'         => 'required|unique:users|email',

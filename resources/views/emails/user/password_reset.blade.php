@@ -1,0 +1,1 @@
+Click <a href="{{ getAddress('url') }}/password/reset?token={{$token}}&email={{$user->email}}">here</a> to reset password

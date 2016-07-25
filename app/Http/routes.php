@@ -140,6 +140,30 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/login/{provider}', 'OauthController@getSocialLogin');
 
+	Route::get('forgot-password', function () {
+		return view('pages.password_reset');
+	});
+
+	Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
+	
+	Route::get('password/reset/{token?}', [
+		'as' => 'login',
+		'uses' => 'Auth\PasswordController@showResetForm'
+	])->middleware('resetToken');
+
+	Route::post('password/reset', 'Auth\PasswordController@reset');
+
+	Route::get('/setPassword/{id}/{encyptedEmail}', [
+		'as' => 'set_password',
+		'uses' => 'AdminController@setPassword'
+	]);
+
+	Route::post('/setPassword',[
+		'as' => 'set_password',
+		'uses' => 'AdminController@p_setPassword'
+	]);
+
+
 });
 
 

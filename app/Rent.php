@@ -6,10 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rent extends Model
 {
-    //
-    protected $fillable=['rent_paid','actual_rent','status'];
+    protected $fillable = [
+        'user_id'
+        'property_id'
+        'description'
+        'rent_paid'
+        'actual_rent'
+        'tenor'
+        'expiry'
+        'status'
+        'rent_paid',
+        'actual_rent',
+    ];
 
-    protected $date=['deleted_at','expiry'];
+    protected $date = [
+        'deleted_at',
+        'expiry'
+    ];
 
     public function user()
     {

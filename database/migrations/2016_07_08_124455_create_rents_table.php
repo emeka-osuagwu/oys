@@ -23,9 +23,7 @@ class CreateRentsTable extends Migration {
 			$table->float('actual_rent', 10, 0);
 			$table->boolean('status');
 			$table->integer('tenor')->nullable()->default(3);
-			$table->date('created_at')->nullable();
-			$table->date('updated_at')->nullable();
-			$table->date('deleted_at')->nullable();
+			$table->timestamps();
 		});
 	}
 

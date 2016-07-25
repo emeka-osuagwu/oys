@@ -26,7 +26,7 @@
 	            <div class="row">
                     <div class="col-sm-12">
                         <div class="panel panel-default">
-                            <div class="panel-heading"><h3 class="panel-title"></h3>Create Property</div>
+                            <div class="panel-heading"><h3 class="panel-title"></h3>Create Rent</div>
                             <div class="panel-body">
                                 <form class="form-horizontal" role="form" action="{{ url('property/create') }}" method="post">                                    
                                     <div class="form-group">

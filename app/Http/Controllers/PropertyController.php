@@ -97,26 +97,23 @@ class PropertyController extends Controller
 		return Redirect('home');
 	}
 
-	public function destroy($id)
+	public function delete($id)
 	{
 		$property = Property::find($id);
-		if(Auth::user()->id != $property->user_id or Auth::user()->role != 'admin')
-		abort('404');
-		else
-		if(Auth::user()->id != $property->user_id or Auth::user()->role == 'admin')
+		
+		if (Auth::user()->id == $property->user_id) 
 		{
-			$name   = $property->title;
-			$property->delete();
+			$this->propertyRepository->deleteProperty($id);
+			session()->flash('message', 'property "'.$property->namespace.'" deleted successfully!');
 		}
-		else {
-			$name  = $property->title;
-			$property->status = '4';
-			$property->save();
+		else
+		{
+			return back();
 		}
 
 
 
-		\Session::flash('message', 'property "'.$name.'" deleted successfully!');
+
 		return redirect()->back();
 	}
 

@@ -31,4 +31,9 @@ class PropertyRepository
 
     	Property::create($create);
     }
+
+    public function deleteProperty($id)
+    {
+        $property = Property::where('id', $id)->delete();
+    }
 }

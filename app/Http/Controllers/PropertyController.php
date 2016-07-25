@@ -79,6 +79,7 @@ class PropertyController extends Controller
 		{
 			return back();
 		}
+		return back();
 	}
 
 	public function singleproperty($id)

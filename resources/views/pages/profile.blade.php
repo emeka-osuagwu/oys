@@ -225,7 +225,7 @@
 		                                <div class="item-info">
 		                                    <div class="text-muted">59 minutes ago</div>
 		                                    <p><a href="#" class="text-info">Jessi</a> attended a meeting with<a href="#" class="text-success">John Doe</a>.</p>
-		                                    <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
+		                                    <p></p>
 		                                </div>
 		                            </div>
 		                        </div>

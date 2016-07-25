@@ -315,7 +315,7 @@ public function update(Request $request)
 public function delete($id)
 {
   Rent::find($id)->delete();
-  return bacl();
+  return back();
 }
 
 public function earnings()

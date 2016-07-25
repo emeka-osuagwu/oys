@@ -262,10 +262,11 @@ public function myrent()
 public function edit($id)
 {
   //
+  $properties = $this->propertyRepository->getAllProperty();
   $rent= Rent::find($id);
   if(Auth::user()->id ==$rent->id or Auth::user()->role =='admin' )
 
-  return view('editrent', compact('rent'));
+  return view('pages.edit_rent', compact('rent', 'properties'));
 
   else abort('503');
 }
@@ -277,10 +278,11 @@ public function edit($id)
 * @param  int  $id
 * @return \Illuminate\Http\Response
 */
-public function update(Request $request, $id)
+public function update(Request $request)
 {
-  //
-  $rent=Rent::find($id);
+  
+  $rent = Rent::find($request['rent_id']);
+
   if(Auth::user()->id != $rent->user_id and Auth::user()->role != 'admin')
   abort('404');
   else
@@ -300,8 +302,7 @@ public function update(Request $request, $id)
   $rent->save();
 
   Session::flash('message', 'Successfully edited your rent');
-  return Redirect('home');
-
+  return Redirect('rents');
 
 }
 
@@ -313,7 +314,7 @@ public function update(Request $request, $id)
 */
 public function destroy($id)
 {
-  //
+  Rent::find($id)->delete();
 }
 
 public function earnings()

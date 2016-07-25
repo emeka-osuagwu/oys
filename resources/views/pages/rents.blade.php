@@ -32,7 +32,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Title</th>
+                                            <th>Property</th>
                                             <th>User</th>
                                             <th>Expiry At</th>
                                             <th>Tenor</th>

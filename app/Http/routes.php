@@ -87,6 +87,17 @@ Route::group(['middleware' => ['web']], function () {
 			'as' 	=> 'properties',
 			'uses' 	=> 'RentController@postCreate'
 		]);
+
+		Route::get('{id}/edit', [
+			'as' 	=> 'properties',
+			'uses' 	=> 'RentController@edit'
+		]);
+
+		Route::post('update', [
+			'as' 	=> 'properties',
+			'uses' 	=> 'RentController@update'
+		]);
+
 	});
 
 	Route::get('savings', [

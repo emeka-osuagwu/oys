@@ -46,6 +46,7 @@
 							<li><a href="{{ Url('user/create') }}">Add User</a></li>
 						</ul>
 				  	</li>
+
 				  	<li class="has_sub">
 						<a href="#" class="waves-effect waves-light">
 							<i class="md md-mail"></i>
@@ -57,6 +58,20 @@
 						<ul class="list-unstyled">
 							<li><a href="{{ Url('properties') }}">Properties</a></li>
 							<li><a href="{{ Url('property/create') }}">Add Properties</a></li>
+						</ul>
+				  	</li>
+
+				  	<li class="has_sub">
+						<a href="#" class="waves-effect waves-light">
+							<i class="md md-mail"></i>
+							<span>Add Rent</span>
+							<span class="pull-right">
+						  		<i class="md md-add"></i>
+						  	</span>
+						</a>
+						<ul class="list-unstyled">
+							<li><a href="{{ Url('rents') }}">Rents</a></li>
+							<li><a href="{{ Url('rent/create') }}">Add Rent</a></li>
 						</ul>
 				  	</li>
 

@@ -24,7 +24,7 @@ class PropertyRepository
 
     public function getAllProperty()
     {
-        return Property::with('user')->all();
+        return Property::with('user')->get();
     }
 
     public function getPropertyWhere($field, $value)
@@ -42,7 +42,7 @@ class PropertyRepository
     		"city" => $data['city'],
     		"state" => $data['state'],
     		"description" => $data['description'],
-    		"price" => $data['price'],
+    		"price" => $this->tofloat($data['price']),
     	];
 
     	Property::create($create);

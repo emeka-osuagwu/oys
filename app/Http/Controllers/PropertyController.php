@@ -14,6 +14,7 @@ class PropertyController extends Controller
 	public function index()
 	{
 		$properties = $this->propertyRepository->getPropertyWhere('id', Auth::user()->id);
+		
 		return view('pages.properties',compact('properties'));
 	}
 
@@ -24,7 +25,6 @@ class PropertyController extends Controller
 
 	public function postCreate(Request $request)
 	{
-		$request['price'] 		= $this->tofloat($request->price);
 		$request['user_id'] 	= Auth::user()->id;
 
 		$this->propertyRepository->createProperty($request->all());

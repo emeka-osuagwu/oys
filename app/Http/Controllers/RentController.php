@@ -63,7 +63,7 @@ public function propertyRent($id)
 public function create()
 {
   //
-  return view('pages.add_rents');
+  return view('pages.create_rent');
 
 }
 

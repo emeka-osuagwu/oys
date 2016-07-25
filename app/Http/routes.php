@@ -98,6 +98,11 @@ Route::group(['middleware' => ['web']], function () {
 			'uses' 	=> 'RentController@update'
 		]);
 
+		Route::get('{id}/delete', [
+			'as' 	=> 'properties',
+			'uses' 	=> 'RentController@delete'
+		]);
+
 	});
 
 	Route::get('savings', [

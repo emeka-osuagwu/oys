@@ -61,7 +61,7 @@
                         @else
                             <div class="alert alert-info alert-dismissable">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                Opps we currently don't have any properties to show at the moment. <a href="{{ Url('rent/create') }}" class="alert-link">Why don't you add some?</a>
+                                Opps we currently don't have any rents info to show at the moment. <a href="{{ Url('rent/create') }}" class="alert-link">Why don't you add some?</a>
                             </div>
                         @endif
                     </div>

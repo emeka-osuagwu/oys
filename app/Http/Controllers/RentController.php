@@ -312,9 +312,10 @@ public function update(Request $request)
 * @param  int  $id
 * @return \Illuminate\Http\Response
 */
-public function destroy($id)
+public function delete($id)
 {
   Rent::find($id)->delete();
+  return bacl();
 }
 
 public function earnings()

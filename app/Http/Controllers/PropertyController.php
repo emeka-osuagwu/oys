@@ -70,12 +70,9 @@ class PropertyController extends Controller
 
 	public function edit($id)
 	{
-		$property= Property::find($id);
-		if(Auth::user()->id ==$property->id or Auth::user()->role =='admin' )
+		$property = Property::find($id);
 
-		return view('editproperty', compact('property'));
-
-		else abort('503');
+		return view('pages.edit_property', compact('property'));
 	}
 
 	public function update(Request $request, $id)

@@ -51,6 +51,7 @@ class PasswordController extends Controller
 
         Mail::send('emails.user.password_reset', compact('token', 'user'), function ($message) use ($user, $token) {
             $message->to($user->email)->subject("Your Password Reset Link");
+            $message->from(env('SENDER_EMAIL'), env('SENDER_NAME'));
         });
 
         session()->flash('alert-success', 'A password reset link as been sent to your email :)');

@@ -14,62 +14,61 @@
 	                    <h4 class="pull-left page-title"></h4>
 	                </div>
 	            </div>
-	            <div class="row">
-	                <div class="col-lg-12">
-	                    <div class="btn-toolbar" role="toolbar">
-	                        <div class="pull-right">
-	                            <a href="{{ Url('property/create') }}" class="btn btn-purple waves-effect waves-light"> <span>Add Property</span> <i class="fa fa-send m-l-10"></i> </a>
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
 	            <br>
-	            <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Properties</h3>
-                            </div>
 
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Title</th>
-                                                        <th>Price</th>
-                                                        <th>Address</th>
-                                                        <th>City</th>
-                                                        <th>State</th>
-                                                        <th>Type</th>
-                                                        <th>Description</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach($properties as $property)
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>{{$property->title}}</td>
-                                                        <td>{{$property->price}}</td>
-                                                        <td>{{$property->address}}</td>
-                                                        <td>{{$property->city}}</td>
-                                                        <td>{{$property->state}}</td>
-                                                        <td>{{$property->type}}</td>
-                                                        <td>{{$property->description}}</td>
-                                                    </tr>
-                                                 	@endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+                <div class="panel">
+                                            
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="m-b-30">
+                                    <a href="{{ Url('property/create') }}" id="addToTable" class="btn btn-primary waves-effect waves-light">Add Property <i class="fa fa-plus"></i></a>
                                 </div>
                             </div>
                         </div>
+                        @if($properties->count() > 0)
+                            @foreach($properties as $property)
+                                <table class="table table-bordered table-striped" id="datatable-editable">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Title</th>
+                                            <th>Price</th>
+                                            <th>Address</th>
+                                            <th>City</th>
+                                            <th>State</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="gradeX">
+                                            <td>1</td>
+                                            <td>{{$property->title}}</td>
+                                            <td>{{$property->price}}</td>
+                                            <td>{{$property->address}}</td>
+                                            <td>{{$property->city}}</td>
+                                            <td>{{$property->state}}</td>
+                                            <td>{{$property->type}}</td>
+                                            <td>{{$property->description}}</td>
+                                            <td class="actions">
+                                                <a href="{{ Url('property/' . $property->id . '/edit') }}" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                                <a href="{{ Url('property/' . $property->id . '/delete') }}" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            @endforeach
+                        @else
+                            fvkfkj
+                        @endif
                     </div>
+                    <!-- end: page -->
+
                 </div>
+
+
 
 
 

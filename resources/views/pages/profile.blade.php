@@ -3,6 +3,13 @@
 
 @section('content')
 	@include('pages.includes.sections.side_bar')
+
+	@if(Auth::user()->profile_status == 0)
+		<script>
+			swal("Opps you need to update your profile under settings!")
+		</script>
+	@endif
+
 	<div class="content-page">
 	    <!-- Start content -->
 	    <div class="content">

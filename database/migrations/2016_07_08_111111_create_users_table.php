@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->string('description')->nullable();
             
-            $table->integer('role')->default(0);
+            $table->integer('role')->default(1);
             $table->integer('access_level')->default(0);
             $table->integer('profile_status')->default(0);
 

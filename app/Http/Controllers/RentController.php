@@ -62,8 +62,8 @@ public function propertyRent($id)
 
 public function create()
 {
-  //
-  return view('pages.create_rent');
+  $properties = $this->propertyRepository->getAllProperty();
+  return view('pages.create_rent', compact('properties'));
 
 }
 

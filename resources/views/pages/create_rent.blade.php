@@ -28,7 +28,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading"><h3 class="panel-title"></h3>Create Rent</div>
                             <div class="panel-body">
-                                <form class="form-horizontal" role="form" action="{{ url('property/create') }}" method="post">                                    
+                                <form class="form-horizontal" role="form" action="{{ url('rent/create') }}" method="post">                                    
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Title</label>
                                         <div class="col-md-10">
@@ -37,37 +37,41 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label" for="example-email">Price</label>
+                                        <label class="col-md-2 control-label">Property</label>
                                         <div class="col-md-10">
-                                            <input type="number" name="price" id="example-email" class="form-control" placeholder="Price" required>
+                                            <select class="form-control" required="" name="role">
+                                                @foreach($properties as $property)
+                                                    <option value="{{$property->id}}">{{ $property->title }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">Address</label>
+                                        <label class="col-md-2 control-label">Expiry</label>
                                         <div class="col-md-10">
-                                            <input type="text" name="address" class="form-control" placeholder="Address" required>
+                                            <input type="text" name="title" class="form-control" required placeholder="Expiry">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">City</label>
+                                        <label class="col-md-2 control-label">Tenor</label>
                                         <div class="col-md-10">
-                                            <input type="text" name="city" class="form-control" placeholder="City" required>
+                                            <input type="text" name="tenor" class="form-control" required placeholder="Tenor">
                                         </div>
-                                    </div>   
+                                    </div>
 
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">State</label>
+                                        <label class="col-md-2 control-label">Actual Rent</label>
                                         <div class="col-md-10">
-                                            <input type="text" name="state" class="form-control" placeholder="State" required>
+                                            <input type="text" name="actual_rent" class="form-control" required placeholder="Actual Rent">
                                         </div>
-                                    </div>   
+                                    </div>
 
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">Type</label>
+                                        <label class="col-md-2 control-label">Rent Paid</label>
                                         <div class="col-md-10">
-                                            <input type="text" name="type" class="form-control" placeholder="Type" required>
+                                            <input type="text" name="rent_paid" class="form-control" required placeholder="Rent Paid">
                                         </div>
                                     </div>
 

@@ -110,11 +110,6 @@ class PropertyController extends Controller
 		{
 			return back();
 		}
-
-
-
-
-		return redirect()->back();
 	}
 
 

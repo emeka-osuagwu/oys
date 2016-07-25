@@ -55,8 +55,13 @@ Route::group(['middleware' => ['web']], function () {
 		]);
 
 		Route::get('{id}/delete', [
-			'as' 	=> 'property.id',
+			'as' 	=> 'property.id.delete',
 			'uses' 	=> 'PropertyController@delete'
+		]);
+
+		Route::get('{id}/edit', [
+			'as' 	=> 'property.id.delete',
+			'uses' 	=> 'PropertyController@edit'
 		]);
 		
 	});

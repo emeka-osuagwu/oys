@@ -30,6 +30,7 @@ class PropertyRepository
     	];
 
     	Property::create($create);
+      
     }
 
     public function deleteProperty($id)

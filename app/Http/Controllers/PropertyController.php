@@ -11,23 +11,6 @@ use App\Http\Requests;
 use Auth;
 class PropertyController extends Controller
 {
-
-	public function tofloat($num) 
-	{
-	
-		$dotPos 	= strrpos($num, '.');
-		$commaPos 	= strrpos($num, ',');
-		$sep 		= (($dotPos > $commaPos) && $dotPos) ? $dotPos :
-		((($commaPos > $dotPos) && $commaPos) ? $commaPos : false);
-
-		if (!$sep) 
-		{
-			return floatval(preg_replace("/[^0-9]/", "", $num));
-		}
-
-		return floatval(preg_replace("/[^0-9]/", "", substr($num, 0, $sep)) . '.' . preg_replace("/[^0-9]/", "", substr($num, $sep+1, strlen($num))));
-	}
-
 	public function index()
 	{
 		$properties = $this->propertyRepository->getPropertyWhere('id', Auth::user()->id);
@@ -70,28 +53,17 @@ class PropertyController extends Controller
 
 	public function edit($id)
 	{
-		$property = Property::find($id);
+		$property = $this->propertyRepository->getPropertyWhere('id', $id)->first();
 
 		return view('pages.edit_property', compact('property'));
 	}
 
-	public function update(Request $request, $id)
+	public function update(Request $request)
 	{
-		//
-		$property=Property::find($id);
-
-		$property->title = $request->title;
-		$property->type = $request->type;
-		$property->address = $request->address;
-		$property->city = $request->city;
-		$property->state= $request->state;
-		$property->description = $request->description;
-		$property->price =$this->tofloat($request->price);
-		$property->save();
-
+		$this->propertyRepository->updateProperty($request->all());
 
 		Session::flash('message', 'Successfully edited property');
-		return Redirect('home');
+		return Redirect('/property/' . $request['property_id'] . '/edit');
 	}
 
 	public function delete($id)
@@ -108,7 +80,6 @@ class PropertyController extends Controller
 			return back();
 		}
 	}
-
 
 	public function singleproperty($id)
 	{

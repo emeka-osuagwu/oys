@@ -29,6 +29,10 @@
                             <div class="panel-heading"><h3 class="panel-title"></h3>Edit Property</div>
                             <div class="panel-body">
                                 <form class="form-horizontal" role="form" action="{{ url('property/update') }}" method="post">                                    
+                                    
+                                    <input type="text" name="property_id"  hidden="true" value="{{$property->id}}">
+                                    <input type="text" name="user_id"  hidden value="{{$property->id}}">
+                                    
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Title</label>
                                         <div class="col-md-10">

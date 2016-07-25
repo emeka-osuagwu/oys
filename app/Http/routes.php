@@ -60,8 +60,13 @@ Route::group(['middleware' => ['web']], function () {
 		]);
 
 		Route::get('{id}/edit', [
-			'as' 	=> 'property.id.delete',
+			'as' 	=> 'property.id.edit',
 			'uses' 	=> 'PropertyController@edit'
+		]);
+
+		Route::get('update', [
+			'as' 	=> 'property.id.update',
+			'uses' 	=> 'PropertyController@update'
 		]);
 		
 	});

@@ -64,7 +64,7 @@ Route::group(['middleware' => ['web']], function () {
 			'uses' 	=> 'PropertyController@edit'
 		]);
 
-		Route::get('update', [
+		Route::post('update', [
 			'as' 	=> 'property.id.update',
 			'uses' 	=> 'PropertyController@update'
 		]);

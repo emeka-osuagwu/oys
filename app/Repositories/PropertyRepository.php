@@ -55,12 +55,14 @@ class PropertyRepository
 
     public function updateProperty($data)
     {
-        $property->type         = $data->type;
-        $property->city         = $data->city;
-        $property->state        = $data->state;
-        $property->price        = $this->tofloat($data->price);
-        $property->title        = $data->title;
-        $property->address      = $data->address;
-        $property->description  = $data->description;
+        $property               = Property::find($data['property_id']); 
+        $property->type         = $data['type'];
+        $property->city         = $data['city'];
+        $property->state        = $data['state'];
+        $property->price        = $this->tofloat($data['price']);
+        $property->title        = $data['title'];
+        $property->address      = $data['address'];
+        $property->description  = $data['description'];
+        $property->save();
     }
 }

@@ -7,15 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Rent extends Model
 {
     protected $fillable = [
-        'user_id'
-        'property_id'
-        'description'
-        'rent_paid'
-        'actual_rent'
-        'tenor'
-        'expiry'
-        'status'
+        'status',
+        'tenor',
+        'expiry',
+        'user_id',
         'rent_paid',
+        'rent_paid',
+        'description',
+        'actual_rent',
+        'property_id',
         'actual_rent',
     ];
 

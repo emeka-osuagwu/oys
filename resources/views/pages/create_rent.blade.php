@@ -39,7 +39,7 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Property</label>
                                         <div class="col-md-10">
-                                            <select class="form-control" required="" name="role">
+                                            <select class="form-control" required="" name="property_id">
                                                 @foreach($properties as $property)
                                                     <option value="{{$property->id}}">{{ $property->title }}</option>
                                                 @endforeach
@@ -50,7 +50,7 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Expiry</label>
                                         <div class="col-md-10">
-                                            <input type="text" name="title" class="form-control" required placeholder="Expiry">
+                                            <input type="date" name="expiry" class="form-control" required placeholder="Expiry">
                                         </div>
                                     </div>
 
@@ -78,7 +78,7 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Description</label>
                                         <div class="col-md-10">
-                                            <textarea class="form-control" rows="5" name="description" placeholder="Description" ></textarea>
+                                            <textarea class="form-control" rows="5" name="description" required placeholder="Description" ></textarea>
                                         </div>
                                     </div>
 

@@ -42,7 +42,7 @@ public function index()
 {
   //
 
-  $rents=Auth::user()->rents()->paginate(10);
+  $rents = Rent::with('user', 'property')->get();
   return view('pages.rents',compact('rents'));
 }
 
@@ -87,7 +87,7 @@ public function postCreate(Request $request)
 
   $rent = new Rent;
   $rent->user_id = Auth::user()->id;
-  $rent->property_id = $request->propertyid;
+  $rent->property_id = (int) $request->property_id;
   $rent->description = $request->description;
   $rent->expiry = $request->expiry;
   $rent->tenor = $request->tenor;
